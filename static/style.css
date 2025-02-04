@@ -82,7 +82,7 @@ html {
 .container {
     max-width: 1024px;
     margin: 0 auto;
-    padding: 0;
+    padding: 2rem;  /* Add padding */
     margin-top: 5rem;
     position: relative;
 }
@@ -106,6 +106,21 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     object-fit: cover;
     display: block;
+}
+
+.hero-image {
+    margin: -2rem -2rem 2rem -2rem;  /* Negative margin to offset container padding */
+    width: calc(100% + 4rem);  /* Compensate for the negative margins */
+    max-width: none;
+    overflow: hidden;
+    background-color: #000000; /* Add background color */
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
 }
 
 section {
