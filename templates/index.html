@@ -163,24 +163,35 @@
         
         <section id="contact" class="contact">
             <h2>Contact & Connect</h2>
-            <p>
-              <span style="display: inline-block;"><strong>Anas Nasim</strong> | +91-9971464628</span><br>
-            </p>
+            <p style="text-align: left;"><strong>Anas Nasim</strong> | +91-9971464628</p>
             <div class="social-links">
-              <a href="https://github.com/AnasNasim12" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
-              <a href="https://linkedin.com/in/anasnasim12" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
-              <a href="mailto:anasnasim1@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-2x"></i></a>
+              <a href="https://github.com/AnasNasim12" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-xl"></i></a>
+              <a href="https://linkedin.com/in/anasnasim12" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-xl"></i></a>
+              <a href="mailto:anasnasim1@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-xl"></i></a>
             </div>
         </section>
     </div>
-
+    <footer style="text-align: center; color: #919dad; padding: 10px 0;">
+        © Anas Nasim 2025. All rights reserved.
+    </footer>
+    <button id="toTopBtn" onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background: transparent; border: none; cursor: pointer; display: none;">
+        <img src="{{ url_for('static', filename='images/scrolltotop.png') }}" alt="Top" style="filter: invert(1); width: 32px; height: 32px;">
+    </button>
     <script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
     function toggleNav() {
         var navLinks = document.querySelector('.nav-links');
         var toggle = document.querySelector('.navbar-toggle');
         navLinks.classList.toggle('active');
         toggle.classList.toggle('active');
     }
+    window.addEventListener('scroll', function() {
+        var btn = document.getElementById('toTopBtn');
+        var scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+        btn.style.display = scrollPercent > 0.5 ? 'block' : 'none';
+    });
     </script>
 </body>
 </html>
