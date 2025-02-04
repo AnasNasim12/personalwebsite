@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anas Nasim</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand"><a href="#top">Anas Nasim</a></div>
+        <button class="navbar-toggle" onclick="toggleNav()">&#9660;</button>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#contact">Connect</a>
+            <a href="#technical-skills">Skills</a>
+        </div>
+    </nav>
+
+    <div id="top" class="container">
+        
+        <header>
+            <h1>Hi, I'm <span class="highlight-name">Anas</span></h1>
+            <p class="intro-text">I'm a developer currently learning Django & Flask. <span class="highlight">&lt;Currently working!&gt;</span></p>
+            <p class="intro-text">I enjoy building APIs & apps. My focus is the Python stack.</p>
+        </header>
+        
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>I'm a Computer Science student at Manipal University Jaipur. I work with AI, data science, and software development, focusing on building practical solutions that actually work. I've got hands-on experience with data analysis and software development, and I like collaborating with others in the field. Always keeping up with new tech and looking for ways to improve my skills.</p>
+        </section>
+
+        
+
+        
+        <section id="resume" class="resume">
+            
+            <h2>Education</h2>
+            <table class="experience-table">
+                <tr>
+                    <td class="exp-date">2021 - 2025</td>
+                    <td class="exp-content">
+                        <div class="exp-title">B.Tech in Computer Science and Engineering</div>
+                        <div class="exp-company">Manipal University Jaipur, Rajasthan</div>
+                        <div class="edu-grade">CGPA: 7.83</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="exp-date">2020 - 2021</td>
+                    <td class="exp-content">
+                        <div class="exp-title">Science (CBSE)</div>
+                        <div class="exp-company">St. Thomas' School, Dwarka, NCR</div>
+                        <div class="edu-grade">Percentage: 90.2%</div>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>Experience</h2>
+            <table class="experience-table">
+                <tr>
+                    <td class="exp-date"> Jan 2025 - Present</td>
+                    <td class="exp-content">
+                        <div class="exp-title">Software Engineer Intern</div>
+                        <div class="exp-company">Techcurators, Delhi</div>
+                        <ul class="exp-details">
+                            <li>Worked on diverse projects, including development of the company's revamped website.</li>
+                            <li>Implemented and deployed APIs and interfaces.</li>
+                            <li>Contributed in development and deployment of real-world projects.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="exp-date">June - July 2024</td>
+                    <td class="exp-content">
+                        <div class="exp-title">Data Science Intern</div>
+                        <div class="exp-company">Acuity Knowledge Partners, Bengaluru</div>
+                        <ul class="exp-details">
+                            <li>Worked on diverse projects, enhancing skills in Python, R, and SQL</li>
+                            <li>Assessed and troubleshooted computer problems brought by staff</li>
+                            <li>Engaged in brainstorming and networking with industry experts</li>
+                        </ul>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>Projects</h2>
+            <ul>
+              <li>
+                <strong>ChatPDF Gemini</strong> (<span class="project-skill skill-blue">Python</span> <span class="project-skill skill-teal">Gemini</span> <span class="project-skill skill-green">Streamlit</span> <span class="project-skill skill-orange">FAISS</span> <span class="project-skill skill-deepskyblue">LangChain</span>)
+                <ul>
+                  <li>Developed a webapp that utilizes the Gemini model to read and provide insights from provided .pdf documents.</li>
+                  <li>Implemented advanced RAG techniques to vectorize textual data using FAISS and LangChain.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Automated eBook Generator</strong> (<span class="project-skill skill-blue">Python</span> <span class="project-skill skill-goldenrod">Google Generative AI</span> <span class="project-skill skill-tomato">Torch</span> <span class="project-skill skill-crimson">Diffusers</span>)
+                <ul>
+                  <li>Developed a Python-based tool that generates content-rich, fully formatted eBooks from user input.</li>
+                  <li>Incorporated <strong>Google Generative AI</strong> for dynamic content creation.</li>
+                  <li>Utilized libraries for converting markdown to PDF and managing PDF structure, and <strong>ReportLab</strong> for custom page layouts.</li>
+                  <li>Integrated <strong>Torch</strong> and <strong>Diffusers (AmusedPipeline)</strong> to generate and embed visuals.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>AI images VS Real images prediction using RexNet150</strong> (<span class="project-skill skill-blue">Python</span> <span class="project-skill skill-slateblue">PyTorch</span> <span class="project-skill skill-cornflowerblue">Pandas</span>)
+                <ul>
+                  <li>Developed an experimental classification project that classifies real images and AI-generated images.</li>
+                  <li>Achieved an accuracy score of 80 percent on testing data.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Text Processing using HuggingFace's inference API</strong> (<span class="project-skill skill-blue">Python</span> <span class="project-skill skill-forestgreen">Flask</span> <span class="project-skill skill-purple">HTML</span> <span class="project-skill skill-crimson">HuggingFace</span>)
+                <ul>
+                  <li>Flask-based webapp that processes user input text depending on the API endpoint used.</li>
+                  <li>Utilizes HTML and CSS for a stylish interface.</li>
+                </ul>
+              </li>
+            </ul>
+
+            <h2 id="technical-skills">My Skills</h2>
+            <p>
+              <span class="skill-box skill-red">Java</span>
+              <span class="skill-box skill-blue">Python</span>
+              <span class="skill-box skill-green">C</span>
+              <span class="skill-box skill-orange">SQL</span>
+              <span class="skill-box skill-goldenrod">JavaScript</span>
+              <span class="skill-box skill-purple">HTML/CSS</span>
+              <span class="skill-box skill-teal">R</span>
+    
+              <span class="skill-box skill-sienna">Git</span>
+              <span class="skill-box skill-darkblue">Google Cloud Platform</span>
+    
+              <span class="skill-box skill-cornflowerblue">pandas</span>
+              <span class="skill-box skill-mediumseagreen">NumPy</span>
+              <span class="skill-box skill-tomato">Matplotlib</span>
+              <span class="skill-box skill-orangered">Tensorflow</span>
+              <span class="skill-box skill-slateblue">PyTorch</span>
+              <span class="skill-box skill-crimson">HuggingFace</span>
+              <span class="skill-box skill-darkslategray">Transformers</span>
+              <span class="skill-box skill-orchid">seaborn</span>
+              <span class="skill-box skill-mediumturquoise">keras</span>
+              <span class="skill-box skill-darkblue">Django</span>
+              <span class="skill-box skill-forestgreen">Flask</span>
+              <span class="skill-box skill-navy">FastAPI</span>
+            </p>
+
+            <h2>Certifications and Achievements</h2>
+            <ul>
+                <li>Introduction to Object-Oriented Programming with Java <a href="https://coursera.org/share/12560d9bf67cd8cbe6d865faaac61f8d" class="cert-link" target="_blank">link</a></li>
+                <li>Agile Project Management <a href="https://coursera.org/share/8bb191f7adb564d4deb8d406fcbec8fa" class="cert-link" target="_blank">link</a></li>
+                <li>Machine Learning A-Z: Hands-On Python and R In Data Science <a href="https://www.udemy.com/certificate/UC-e33a4896-4153-4528-910c-6fd781eb5e77/" class="cert-link" target="_blank">link</a></li>
+                <li>Fundamental Data Structures and Algorithms using C <a href="https://www.udemy.com/certificate/UC-3a7fc166-2cd6-41a0-8a66-3dca351d5283/" class="cert-link" target="_blank">link</a></li>
+                <li>Incubated startup "Solum" in university's AIC (Atal Incubation Centre)</li>
+                <li>Selected and participated in AICTE and MoE organized "Innovation, Design, and Entrepreneurship (IDE) Bootcamp" 2024</li>
+            </ul>
+        </section>
+
+        
+        <section id="contact" class="contact">
+            <h2>Contact & Connect</h2>
+            <p>
+              <span style="display: inline-block;"><strong>Anas Nasim</strong> | +91-9971464628</span><br>
+            </p>
+            <div class="social-links">
+              <a href="https://github.com/AnasNasim12" target="_blank" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
+              <a href="https://linkedin.com/in/anasnasim12" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+              <a href="mailto:anasnasim1@gmail.com" aria-label="Email"><i class="fas fa-envelope fa-2x"></i></a>
+            </div>
+        </section>
+    </div>
+
+    <script>
+    function toggleNav() {
+        var navLinks = document.querySelector('.nav-links');
+        var toggle = document.querySelector('.navbar-toggle');
+        navLinks.classList.toggle('active');
+        toggle.classList.toggle('active');
+    }
+    </script>
+</body>
+</html>
