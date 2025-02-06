@@ -109,10 +109,9 @@ header {
 }
 
 .hero-image {
-    margin: -2rem -2rem 2rem -2rem;  /* Negative margin to offset container padding */
-    width: calc(100% + 4rem);  /* Compensate for the negative margins */
-    max-width: none;
-    overflow: hidden;
+    max-width: 1024px;
+    margin: 0 auto;
+    position: relative;
     background-color: #000000; /* Add background color */
 }
 
@@ -120,7 +119,7 @@ header {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
+    object-fit: fill;
 }
 
 section {
@@ -135,6 +134,7 @@ section {
 }
 
 h1 {
+    font-family: 'Fira Code', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 0.25rem;
     text-transform: none;
@@ -142,6 +142,7 @@ h1 {
 }
 
 h2 {
+    font-family: 'Fira Code', sans-serif;
     font-size: 1.8rem;
     color: #ffffff;  /* Changed from #888 to white */
     text-transform: none;  /* Changed from uppercase to none */
