@@ -557,3 +557,64 @@ li.fade-in + li.fade-in {
     transform: none;
     transition: none;
 }
+
+/* Resume Button Styles */
+.resume-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    margin: 1rem 0;
+    background-color: #007ACC;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 122, 204, 0.2);
+}
+
+.resume-button:hover {
+    background-color: transparent;
+    border-color: #007ACC;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 122, 204, 0.3);
+}
+
+.resume-button i {
+    margin-right: 8px;
+}
+
+/* Navbar Resume Button Styles */
+.nav-resume {
+    padding: 0.5rem 1rem !important;
+    margin: 0 !important;
+    background-color: #007ACC;
+    border-radius: 6px !important;
+    font-weight: 500;
+    border: 2px solid transparent;
+}
+
+.nav-resume::after {
+    display: none !important;
+}
+
+.nav-resume:hover {
+    background-color: transparent !important;
+    border-color: #007ACC !important;
+    transform: translateY(-2px);
+}
+
+@media screen and (max-width: 768px) {
+    .nav-resume {
+        margin: 0.5rem 0 !important;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-resume {
+        margin: 0.5rem 0 !important;
+        text-align: center;
+    }
+}
