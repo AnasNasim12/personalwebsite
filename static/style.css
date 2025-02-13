@@ -33,7 +33,7 @@ html {
 }
 
 .nav-brand a {
-    color: #007ACC;
+    color: #ffffff;
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -67,7 +67,7 @@ html {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #007ACC;
+    background-color: #ffffff;
     transition: width 0.3s ease;
 }
 
@@ -182,8 +182,8 @@ h1, h2, h3 {
 .social-links a:hover {
     border-style: solid;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,122,204,0.3);
-    color: #007ACC;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    color: #ffffff;
 }
 
 .contact .social-links {
@@ -221,8 +221,8 @@ form input, form textarea {
 .contact button.btn:hover {
     border-style: solid;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,122,204,0.3);
-    color: #007ACC;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    color: #ffffff;
     background-color: transparent;
 }
 
@@ -261,7 +261,7 @@ form input, form textarea {
 .skill-red { background-color: #FF6B6B; }
 .skill-blue { background-color: #4D96FF; }
 .skill-green { background-color: #6BCB77; }
-.skill-orange { background-color: #007ACC; }
+.skill-orange { background-color: rgba(255, 255, 255, 0.2); }
 .skill-goldenrod { background-color: #DAA520; }
 .skill-purple { background-color: #A16AE8; }
 .skill-teal { background-color: #20C997; }
@@ -422,9 +422,8 @@ form button {
 .cert-link:hover {
     border-style: solid;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,122,204,0.3);
-    color: #007ACC;
-    background-color: transparent;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+    color: #ffffff;
 }
 
 /* Experience Table Styles */
@@ -491,7 +490,7 @@ form button {
 }
 
 .highlight {
-    color: #007ACC;
+    color: #ffffff;
     font-weight: bold;
 }
 
@@ -500,7 +499,7 @@ form button {
 }
 
 .highlight-name:hover {
-    color: #007ACC;
+    color: #ffffff;
 }
 
 /* Enhanced Fade-in scroll animation styles */
@@ -563,7 +562,7 @@ li.fade-in + li.fade-in {
     display: inline-block;
     padding: 0.8rem 1.5rem;
     margin: 1rem 0;
-    background-color: #007ACC;
+    background-color: rgba(255, 255, 255, 0.1);
     color: #ffffff;
     text-decoration: none;
     border-radius: 8px;
@@ -571,14 +570,14 @@ li.fade-in + li.fade-in {
     transition: all 0.3s ease;
     border: 2px solid transparent;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 122, 204, 0.2);
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
 }
 
 .resume-button:hover {
     background-color: transparent;
-    border-color: #007ACC;
+    border-color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 122, 204, 0.3);
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3);
 }
 
 .resume-button i {
@@ -589,7 +588,7 @@ li.fade-in + li.fade-in {
 .nav-resume {
     padding: 0.5rem 1rem !important;
     margin: 0 !important;
-    background-color: #007ACC;
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 6px !important;
     font-weight: 500;
     border: 2px solid transparent;
@@ -601,7 +600,7 @@ li.fade-in + li.fade-in {
 
 .nav-resume:hover {
     background-color: transparent !important;
-    border-color: #007ACC !important;
+    border-color: #ffffff !important;
     transform: translateY(-2px);
 }
 
@@ -612,9 +611,155 @@ li.fade-in + li.fade-in {
     }
 }
 
+/* Project Table Styles */
+.project-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+}
+
+.project-cell {
+    background-color: rgba(0, 122, 204, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-cell:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 122, 204, 0.2);
+}
+
+.project-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+.project-skills {
+    margin: 0.5rem 0;
+}
+
+.project-description {
+    margin-top: 1rem;
+    color: #efefef;
+}
+
+.project-description ul {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.2rem;
+}
+
+.project-description li {
+    margin-bottom: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .project-cell {
+        padding: 1rem;
+    }
+    
+    .project-title {
+        font-size: 1.1rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .nav-resume {
         margin: 0.5rem 0 !important;
         text-align: center;
     }
+}
+
+/* Modern Terminal Project Styles */
+.projects-container {
+    background: #1e1e1e;
+    border-radius: 4px;
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    color: #d4d4d4;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+}
+
+.projects-container * {
+    text-shadow: none;
+}
+
+.project-entry {
+    opacity: 0;
+    margin: 1.5rem 0;
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.project-entry.visible {
+    opacity: 1;
+}
+
+.typing-cursor::after {
+    content: '_';
+    color: #ffffff;
+    animation: blink 0.7s infinite;
+    font-weight: normal;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.project-entry::before {
+    content: '$';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-weight: normal;
+}
+
+.project-title {
+    color: #dcdcaa;
+    font-size: 1rem;
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+}
+
+.project-skills {
+    margin: 0.5rem 0;
+    opacity: 0.8;
+}
+
+.project-skill {
+    font-size: 0.9rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 2px;
+    display: inline-block;
+}
+
+.project-description {
+    margin-left: 1rem;
+    border-left: 1px solid #444;
+    padding-left: 1rem;
+    color: #b8b8b8;
+}
+
+.project-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.5rem 0;
+}
+
+.project-description li {
+    margin: 0.5rem 0;
+    position: relative;
+    padding-left: 1rem;
+    line-height: 1.4;
+}
+
+.project-description li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
 }
