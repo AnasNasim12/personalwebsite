@@ -763,3 +763,62 @@ li.fade-in + li.fade-in {
     left: 0;
     color: #ffffff;
 }
+
+/* Modern Timeline Grid Styles */
+.timeline-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    padding: 0.5rem;
+    margin: 1.5rem 0;
+}
+
+.timeline-date {
+    color: #888;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: right;
+    min-width: 120px;
+}
+
+.timeline-content {
+    padding: 0.5rem 0;
+}
+
+.timeline-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-entry {
+    position: relative;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.timeline-entry:hover {
+    transform: translateX(5px);
+}
+
+@media screen and (max-width: 768px) {
+    .timeline-grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+    
+    .timeline-date {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        text-align: left;
+        padding: 0.5rem 0;
+    }
+}
