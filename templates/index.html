@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anas Nasim</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <style>
+        @font-face {
+            font-family: 'Perfect DOS VGA';
+            src: url("{{ url_for('static', filename='fonts/PerfectDOSVGA437.ttf') }}") format('truetype');
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -117,31 +122,52 @@
             </ul>
 
             <h2 class="fade-in" id="technical-skills">My Skills</h2>
-            <p class="fade-in">
-              <span class="skill-box skill-red">Java</span>
-              <span class="skill-box skill-blue">Python</span>
-              <span class="skill-box skill-green">C</span>
-              <span class="skill-box skill-orange">SQL</span>
-              <span class="skill-box skill-goldenrod">JavaScript</span>
-              <span class="skill-box skill-purple">HTML/CSS</span>
-              <span class="skill-box skill-teal">R</span>
-    
-              <span class="skill-box skill-sienna">Git</span>
-              <span class="skill-box skill-darkblue">Google Cloud Platform</span>
-    
-              <span class="skill-box skill-cornflowerblue">pandas</span>
-              <span class="skill-box skill-mediumseagreen">NumPy</span>
-              <span class="skill-box skill-tomato">Matplotlib</span>
-              <span class="skill-box skill-orangered">Tensorflow</span>
-              <span class="skill-box skill-slateblue">PyTorch</span>
-              <span class="skill-box skill-crimson">HuggingFace</span>
-              <span class="skill-box skill-darkslategray">Transformers</span>
-              <span class="skill-box skill-orchid">seaborn</span>
-              <span class="skill-box skill-mediumturquoise">keras</span>
-              <span class="skill-box skill-darkblue">Django</span>
-              <span class="skill-box skill-forestgreen">Flask</span>
-              <span class="skill-box skill-navy">FastAPI</span>
-            </p>
+            <div class="skills-container fade-in">
+                <div class="skills-category">
+                    <h3>Programming Languages</h3>
+                    <div class="skills-group">
+                        <span class="skill-box skill-blue">Python</span>
+                        <span class="skill-box skill-red">Java</span>
+                        <span class="skill-box skill-green">C</span>
+                        <span class="skill-box skill-goldenrod">JavaScript</span>
+                        <span class="skill-box skill-teal">R</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Web Development</h3>
+                    <div class="skills-group">
+                        <span class="skill-box skill-purple">HTML/CSS</span>
+                        <span class="skill-box skill-darkblue">Django</span>
+                        <span class="skill-box skill-forestgreen">Flask</span>
+                        <span class="skill-box skill-navy">FastAPI</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Data Science & AI</h3>
+                    <div class="skills-group">
+                        <span class="skill-box skill-cornflowerblue">pandas</span>
+                        <span class="skill-box skill-mediumseagreen">NumPy</span>
+                        <span class="skill-box skill-tomato">Matplotlib</span>
+                        <span class="skill-box skill-orchid">seaborn</span>
+                        <span class="skill-box skill-orangered">Tensorflow</span>
+                        <span class="skill-box skill-slateblue">PyTorch</span>
+                        <span class="skill-box skill-crimson">HuggingFace</span>
+                        <span class="skill-box skill-darkslategray">Transformers</span>
+                        <span class="skill-box skill-mediumturquoise">keras</span>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3>Tools & Technologies</h3>
+                    <div class="skills-group">
+                        <span class="skill-box skill-sienna">Git</span>
+                        <span class="skill-box skill-orange">SQL</span>
+                        <span class="skill-box skill-darkblue">Google Cloud Platform</span>
+                    </div>
+                </div>
+            </div>
 
             <h2 class="fade-in">Certifications and Achievements</h2>
             <ul>

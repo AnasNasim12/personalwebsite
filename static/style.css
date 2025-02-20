@@ -1,7 +1,7 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Fira Code', monospace;
+    font-family: 'Perfect DOS VGA', monospace;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -25,11 +25,13 @@ html {
     backdrop-filter: blur(15px);
     z-index: 1000;
     border-radius: 0 0 12px 12px;
+    font-family: 'Perfect DOS VGA', monospace;
 }
 
 .nav-brand {
     font-size: 1.2rem;
     font-weight: bold;
+    font-family: 'Perfect DOS VGA', monospace;
 }
 
 .nav-brand a {
@@ -82,8 +84,8 @@ html {
 .container {
     max-width: 1024px;
     margin: 0 auto;
-    padding: 2rem;  /* Add padding */
-    margin-top: 5rem;
+    padding: 1rem;
+    margin-top: 3rem;
     position: relative;
 }
 
@@ -123,8 +125,8 @@ header {
 }
 
 section {
-    margin: 0.5rem 0;
-    padding: 5px 0;
+    margin: 0.25rem 0;
+    padding: 3px 0;
     position: relative;
 }
 
@@ -134,7 +136,7 @@ section {
 }
 
 h1 {
-    font-family: 'Fira Code', sans-serif;
+    font-family: 'Perfect DOS VGA', monospace;
     font-size: 2.5rem;
     margin-bottom: 0.25rem;
     text-transform: none;
@@ -142,7 +144,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Fira Code', sans-serif;
+    font-family: 'Perfect DOS VGA', monospace;
     font-size: 1.8rem;
     color: #ffffff;  /* Changed from #888 to white */
     text-transform: none;  /* Changed from uppercase to none */
@@ -153,8 +155,9 @@ h2 {
 }
 
 h1, h2, h3 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+    font-family: 'Perfect DOS VGA', monospace;
 }
 
 .social-links {
@@ -589,6 +592,7 @@ li.fade-in + li.fade-in {
     border-radius: 6px !important;
     font-weight: 500;
     border: 2px solid transparent;
+    font-family: 'Perfect DOS VGA', monospace;
 }
 
 .nav-resume::after {
@@ -632,6 +636,7 @@ li.fade-in + li.fade-in {
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #fff;
+    font-family: 'Perfect DOS VGA', monospace;
 }
 
 .project-skills {
@@ -686,7 +691,7 @@ li.fade-in + li.fade-in {
 
 .project-entry {
     opacity: 0;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
     position: relative;
     padding-left: 1.2rem;
 }
@@ -765,9 +770,9 @@ li.fade-in + li.fade-in {
 .timeline-grid {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 2rem;
+    gap: 1rem;
     padding: 0.5rem;
-    margin: 1.5rem 0;
+    margin: 1rem 0;
 }
 
 .timeline-date {
@@ -788,6 +793,7 @@ li.fade-in + li.fade-in {
     font-weight: 500;
     color: #ffffff;
     margin-bottom: 0.25rem;
+    font-family: 'Perfect DOS VGA', monospace;
 }
 
 .timeline-subtitle {
@@ -817,5 +823,95 @@ li.fade-in + li.fade-in {
         border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         text-align: left;
         padding: 0.5rem 0;
+    }
+}
+
+/* Skills Section Styles */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 0.5rem;
+    /* Removed background and border */
+}
+
+.skills-category {
+    position: relative;
+    padding: 0.5rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.2); /* Moved border to category */
+}
+
+.skills-category h3 {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    font-weight: normal;
+    position: relative;
+    padding-left: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.skills-category h3::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: #ffffff;
+    font-family: 'Perfect DOS VGA', monospace;
+}
+
+.skills-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+/* Remove the vertical line since we moved it to the category */
+.skills-group::before {
+    display: none;
+}
+
+.skill-box {
+    font-family: 'Perfect DOS VGA', monospace;
+    padding: 0.15rem 0.5rem;
+    border-radius: 0;  /* More terminal-like */
+    box-shadow: none;  /* Remove shadow for cleaner look */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 768px) {
+    .skills-container {
+        padding: 0.5rem;
+    }
+    
+    .skills-category {
+        padding: 0.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .skills-category {
+        padding: 1rem 0;
+    }
+    
+    .skills-category h3 {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .skills-category {
+        padding: 1rem;
+    }
+    
+    .skills-category h3 {
+        font-size: 1rem;
     }
 }
