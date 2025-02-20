@@ -1006,6 +1006,7 @@ li.fade-in + li.fade-in {
     height: 100%; /* Ensure all cards are same height */
     display: flex;
     flex-direction: column;
+    font-family: 'Perfect DOS VGA', monospace; /* Update font for entire card */
 }
 
 .project-card:hover {
@@ -1072,6 +1073,9 @@ li.fade-in + li.fade-in {
     margin-top: 1rem;
     color: #efefef;
     flex: 1; /* Push the tech stack and github link to bottom */
+    font-family: 'Perfect DOS VGA', monospace;
+    font-size: 0.9rem;
+    line-height: 1.4;
 }
 
 .project-description ul {
