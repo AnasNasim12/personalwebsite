@@ -247,6 +247,12 @@ h1, h2, h3 {
     background-color: transparent;
 }
 
+/* Remove the green color styling for Spotify icon */
+.social-links a .fa-spotify {
+    color: #ffffff; /* Keep it white */
+    /* Remove opacity and other special styling */
+}
+
 social-links a:hover {
     transform: translateY(-3px);
     color: rgba(255, 255, 255, 0.8);
