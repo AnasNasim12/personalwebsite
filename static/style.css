@@ -1,7 +1,7 @@
 body {
     background-color: #000000;
     color: #ffffff;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -25,13 +25,13 @@ html {
     backdrop-filter: blur(15px);
     z-index: 1000;
     border-radius: 0 0 12px 12px;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .nav-brand {
     font-size: 1.2rem;
     font-weight: bold;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .nav-brand a {
@@ -90,9 +90,30 @@ html {
 }
 
 header {
-    text-align: left;
-    padding: 0.25rem 0;
-    margin-bottom: 0;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    z-index: 1;
+    padding: 0;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    max-width: 80%; /* Reduce max-width */
+}
+
+header h1 {
+    margin: 0;
+    padding: 0;
+    color: #ffffff;
+    font-size: min(4.5rem, 15vw); /* Responsive font size */
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    word-wrap: break-word;
+}
+
+header .intro-text {
+    margin: 8px 0 0 0;
+    max-width: 100%; /* Update from 600px to be responsive */
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem); /* Responsive font size */
 }
 
 .profile-image {
@@ -115,6 +136,7 @@ header {
     margin: 0 auto;
     position: relative;
     background-color: #000000; /* Add background color */
+    min-height: 50vh; /* Add minimum height */
 }
 
 .hero-image img {
@@ -136,7 +158,7 @@ section {
 }
 
 h1 {
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 2.5rem;
     margin-bottom: 0.25rem;
     text-transform: none;
@@ -144,7 +166,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 1.8rem;
     color: #ffffff;  /* Changed from #888 to white */
     text-transform: none;  /* Changed from uppercase to none */
@@ -152,12 +174,14 @@ h2 {
     display: inline-block;
     padding-bottom: 2px;
     margin-bottom: 0.25rem;
+    font-style: italic;  /* Add this line */
+    font-weight: 900;  /* Changed from 800 to 900 for maximum boldness */
 }
 
 h1, h2, h3 {
     margin-top: 0.25rem;
     margin-bottom: 0.25rem;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .social-links {
@@ -239,6 +263,7 @@ form input, form textarea {
     opacity: 0;
     transform: translateY(20px);
     transition: none;  /* Remove initial transition */
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .skill-box.animate {
@@ -299,8 +324,9 @@ form input, form textarea {
     to   { opacity: 1; }
 }
 
+/* Remove the glowing text effect */
 * {
-    text-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(255,255,255,0.4);
+    text-shadow: none;
 }
 
 form input,
@@ -347,7 +373,7 @@ form button {
         padding: 0 1rem;
     }
     h1 {
-        font-size: 2rem;
+        font-size: 3rem;  /* Slightly smaller on mobile but still large */
     }
     h2, h3 {
         font-size: 1.4rem;
@@ -355,6 +381,24 @@ form button {
     form input, form textarea, form button {
         font-size: 1rem;
         padding: 0.5rem;
+    }
+    header {
+        bottom: 20px;
+        left: 20px;
+        max-width: 75%;
+    }
+
+    header h1 {
+        font-size: min(3rem, 12vw);
+        line-height: 1;
+    }
+
+    .intro-text {
+        font-size: 0.9rem;
+    }
+    
+    .hero-image {
+        min-height: 40vh;
     }
 }
 
@@ -592,7 +636,7 @@ li.fade-in + li.fade-in {
     border-radius: 6px !important;
     font-weight: 500;
     border: 2px solid transparent;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .nav-resume::after {
@@ -636,7 +680,7 @@ li.fade-in + li.fade-in {
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #fff;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .project-skills {
@@ -721,7 +765,7 @@ li.fade-in + li.fade-in {
 }
 
 .project-title {
-    color: #dcdcaa;
+    color: #ffffff;  /* Changed from #dcdcaa */
     font-size: 1rem;
     font-weight: normal;
     margin-bottom: 0.5rem;
@@ -793,7 +837,7 @@ li.fade-in + li.fade-in {
     font-weight: 500;
     color: #ffffff;
     margin-bottom: 0.25rem;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif; /* Changed from 'Perfect DOS VGA' to consistent font */
 }
 
 .timeline-subtitle {
@@ -853,12 +897,9 @@ li.fade-in + li.fade-in {
     align-items: center;
 }
 
+/* Remove the before pseudo-element that was adding the '>' symbol */
 .skills-category h3::before {
-    content: '>';
-    position: absolute;
-    left: 0;
-    color: #ffffff;
-    font-family: 'Perfect DOS VGA', monospace;
+    display: none;
 }
 
 .skills-group {
@@ -876,7 +917,7 @@ li.fade-in + li.fade-in {
     width: 100%;
     max-width: 400px;
     color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .image-placeholder {
@@ -896,10 +937,11 @@ li.fade-in + li.fade-in {
     padding: 20px;
 }
 
-.project-title {
+.card-content .project-title {
     margin: 0 0 8px 0;
     font-size: 24px;
     font-weight: 600;
+    color: #ffffff;  /* Added to ensure consistency */
 }
 
 .project-description {
@@ -920,6 +962,7 @@ li.fade-in + li.fade-in {
     font-size: 12px;
     margin-right: 8px;
     display: inline-block;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .github-link {
@@ -946,7 +989,7 @@ li.fade-in + li.fade-in {
 }
 
 .skill-box {
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
     padding: 0.15rem 0.5rem;
     border-radius: 0;  /* More terminal-like */
     box-shadow: none;  /* Remove shadow for cleaner look */
@@ -1006,7 +1049,7 @@ li.fade-in + li.fade-in {
     height: 100%; /* Ensure all cards are same height */
     display: flex;
     flex-direction: column;
-    font-family: 'Perfect DOS VGA', monospace; /* Update font for entire card */
+    font-family: Helvetica, Arial, sans-serif; /* Update font for entire card */
 }
 
 .project-card:hover {
@@ -1050,7 +1093,7 @@ li.fade-in + li.fade-in {
     padding: 0.25rem 0.75rem;
     border-radius: 4px;
     font-size: 0.8rem;
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .github-link {
@@ -1073,7 +1116,7 @@ li.fade-in + li.fade-in {
     margin-top: 1rem;
     color: #efefef;
     flex: 1; /* Push the tech stack and github link to bottom */
-    font-family: 'Perfect DOS VGA', monospace;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 0.9rem;
     line-height: 1.4;
 }
@@ -1113,5 +1156,115 @@ li.fade-in + li.fade-in {
 @media screen and (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Updated Skills Section Styles */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+    padding: 0;
+}
+
+.skills-category {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.skills-category h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    position: relative;
+    padding-left: 0;
+    display: inline-block;
+}
+
+.skills-category h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
+}
+
+.skills-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0;
+}
+
+.skill-box {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.skill-box:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* New Scroll to Top Button */
+#toTopBtn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+#toTopBtn::before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(-45deg);
+    display: block;
+}
+
+#toTopBtn:hover {
+    opacity: 1;
+    transform: translateY(-3px);
+}
+
+@media screen and (max-width: 768px) {
+    .skills-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .skills-category {
+        padding: 1rem;
     }
 }

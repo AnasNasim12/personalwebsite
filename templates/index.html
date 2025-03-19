@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <style>
-        @font-face {
-            font-family: 'Perfect DOS VGA';
-            src: url("{{ url_for('static', filename='fonts/PerfectDOSVGA437.ttf') }}") format('truetype');
-        }
-    </style>
+    <!-- Remove Perfect DOS VGA font -->
 </head>
 <body>
     <nav class="navbar">
@@ -31,17 +26,16 @@
     <div id="top" class="container">
         <div class="hero-image">
             <img src="{{ url_for('static', filename='images/pic.png') }}" alt="Hero Image" loading="lazy">
+            <header>
+                <h1 class="fade-in">Hi, I'm Anas</h1>
+            </header>
         </div>
-        
-        <header>
-            <h1 class="fade-in">Hi, I'm <span class="highlight-name">Anas</span></h1>
-            <p class="intro-text fade-in">I'm a developer currently learning Django & Flask. <span class="highlight"><u>&lt;Currently working!&gt;</u></span></p>
-            <p class="intro-text fade-in">I enjoy building APIs & apps. My focus is the Python stack.</p>
-        </header>
         
         <section id="about" class="about">
             <h2 class="fade-in">About Me</h2>
-            <p class="fade-in">I'm a Computer Science student at Manipal University Jaipur. I work with AI, data science, and software development, I mainly focus on building practical solutions that actually work. I like collaborating with others, always keeping up with new tech and looking for ways to improve my skills.</p>
+            <p class="intro-text fade-in">Developer currently learning Django & Flask. <span class="highlight"><u><i>&lt;Currently working!&gt;</i></u></span></p>
+            <p class="intro-text fade-in">I enjoy building APIs & apps. My focus is the Python stack.</p>
+            <p class="fade-in">Computer Science student at Manipal University Jaipur. I work with AI, data science, and software development, I mainly focus on building practical solutions that actually work. I like collaborating with others, always keeping up with new tech and looking for ways to improve my skills.</p>
         </section>
 
         
@@ -194,6 +188,8 @@
                         <span class="skill-box skill-darkblue">Django</span>
                         <span class="skill-box skill-forestgreen">Flask</span>
                         <span class="skill-box skill-navy">FastAPI</span>
+                        <span class="skill-box skill-deepskyblue">React Native</span>
+                        <span class="skill-box skill-mediumturquoise">Tailwind</span>
                     </div>
                 </div>
 
@@ -224,10 +220,10 @@
 
             <h2 class="fade-in">Certifications and Achievements</h2>
             <ul>
-                <li>Introduction to Object-Oriented Programming with Java <a href="https://coursera.org/share/12560d9bf67cd8cbe6d865faaac61f8d" class="cert-link" target="_blank">link</a></li>
-                <li>Agile Project Management <a href="https://coursera.org/share/8bb191f7adb564d4deb8d406fcbec8fa" class="cert-link" target="_blank">link</a></li>
-                <li>Machine Learning A-Z: Hands-On Python and R In Data Science <a href="https://www.udemy.com/certificate/UC-e33a4896-4153-4528-910c-6fd781eb5e77/" class="cert-link" target="_blank">link</a></li>
-                <li>Fundamental Data Structures and Algorithms using C <a href="https://www.udemy.com/certificate/UC-3a7fc166-2cd6-41a0-8a66-3dca351d5283/" class="cert-link" target="_blank">link</a></li>
+                <li>Introduction to Object-Oriented Programming with Java <a href="https://coursera.org/share/12560d9bf67cd8cbe6d865faaac61f8d" class="cert-link" target="_blank">Link</a></li>
+                <li>Agile Project Management <a href="https://coursera.org/share/8bb191f7adb564d4deb8d406fcbec8fa" class="cert-link" target="_blank">Link</a></li>
+                <li>Machine Learning A-Z: Hands-On Python and R In Data Science <a href="https://www.udemy.com/certificate/UC-e33a4896-4153-4528-910c-6fd781eb5e77/" class="cert-link" target="_blank">Link</a></li>
+                <li>Fundamental Data Structures and Algorithms using C <a href="https://www.udemy.com/certificate/UC-3a7fc166-2cd6-41a0-8a66-3dca351d5283/" class="cert-link" target="_blank">Link</a></li>
                 <li>Incubated startup "Solum" in university's AIC (Atal Incubation Centre)</li>
                 <li>Selected and participated in AICTE and MoE organized "Innovation, Design, and Entrepreneurship (IDE) Bootcamp" 2024</li>
             </ul>
@@ -247,9 +243,7 @@
     <footer style="text-align: center; color: #919dad; padding: 10px 0;">
         © Anas Nasim 2025. All rights reserved.
     </footer>
-    <button id="toTopBtn" onclick="scrollToTop()" style="position: fixed; bottom: 20px; left: 20px; background: transparent; border: none; cursor: pointer; display: none;">
-        <img src="{{ url_for('static', filename='images/scrolltotop.png') }}" alt="Top" style="filter: invert(1); width: 32px; height: 32px;">
-    </button>
+    <button id="toTopBtn" onclick="scrollToTop()" aria-label="Scroll to top"></button>
     <script>
     function scrollToTop() {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -262,8 +256,7 @@
     }
     window.addEventListener('scroll', function() {
         var btn = document.getElementById('toTopBtn');
-        var scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-        btn.style.display = scrollPercent > 0.5 ? 'block' : 'none';
+        btn.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
     });
 
     // Fade-in on scroll using IntersectionObserver
