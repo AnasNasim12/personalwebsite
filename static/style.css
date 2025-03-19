@@ -90,24 +90,23 @@ html {
 }
 
 header {
-    position: absolute;
-    bottom: 30px;
-    left: 30px;
+    position: relative; /* Changed from absolute */
     z-index: 1;
-    padding: 0;
+    padding: 2rem;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    max-width: 80%; /* Reduce max-width */
+    width: 100%;
+    max-width: none;
+    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
 }
 
 header h1 {
     margin: 0;
     padding: 0;
     color: #ffffff;
-    font-size: min(4.5rem, 15vw); /* Responsive font size */
+    font-size: clamp(3rem, 8vw, 4.5rem); /* More responsive font sizing */
     line-height: 1.1;
-    margin-bottom: 0.5rem;
     word-wrap: break-word;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 header .intro-text {
@@ -135,15 +134,21 @@ header .intro-text {
     max-width: 1024px;
     margin: 0 auto;
     position: relative;
-    background-color: #000000; /* Add background color */
-    min-height: 50vh; /* Add minimum height */
+    background-color: #000000;
+    min-height: 60vh; /* Increased minimum height */
+    display: flex;
+    align-items: flex-end; /* Align items to bottom */
+    overflow: hidden; /* Prevent content overflow */
 }
 
 .hero-image img {
     width: 100%;
-    height: auto;
-    display: block;
-    object-fit: fill;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover; /* Changed from fill to cover */
+    z-index: 0;
 }
 
 section {
@@ -379,14 +384,11 @@ form button {
         padding: 0.5rem;
     }
     header {
-        bottom: 20px;
-        left: 20px;
-        max-width: 75%;
+        padding: 1.5rem;
     }
-
+    
     header h1 {
-        font-size: min(3rem, 12vw);
-        line-height: 1;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
     }
 
     .intro-text {
@@ -394,7 +396,7 @@ form button {
     }
     
     .hero-image {
-        min-height: 40vh;
+        min-height: 50vh;
     }
 }
 
