@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anas Nasim | Developer</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <meta name="theme-color" content="#090909">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        'noir': '#090909',
+                        'noir-light': '#131313',
+                        'noir-lighter': '#1c1c1c',
+                        'slate': '#282828',
+                        'charcoal': '#404040',
+                        'silver': '#909090',
+                        'smoke': '#d0d0d0',
+                        'chalk': '#f0f0f0',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #090909;
+            color: #f0f0f0;
+            scrollbar-width: thin;
+            scrollbar-color: #404040 #090909;
+            scroll-behavior: smooth; /* Enable smooth scrolling globally */
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #090909;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #404040;
+        }
+        
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stroke-text {
+            -webkit-text-stroke: 1px #d0d0d0;
+            color: transparent;
+        }
+        
+        .tag-pill {
+            transition: all 0.2s ease;
+        }
+        
+        .tag-pill:hover {
+            transform: translateY(-2px);
+            background-color: #282828;
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -15px rgba(255, 255, 255, 0.1);
+        }
+        
+        .link-underline {
+            border-bottom-width: 0;
+            background-image: linear-gradient(transparent, transparent), linear-gradient(#d0d0d0, #d0d0d0);
+            background-size: 0 1px;
+            background-position: 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size .3s ease-in-out;
+        }
+        
+        .link-underline:hover {
+            background-size: 100% 1px;
+            background-position: 0 100%;
+        }
+        
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+            animation: marquee 30s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Staggered animation for children elements */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        
+        .stagger-children.active > *:nth-child(1) { transition-delay: 0.1s; }
+        .stagger-children.active > *:nth-child(2) { transition-delay: 0.2s; }
+        .stagger-children.active > *:nth-child(3) { transition-delay: 0.3s; }
+        .stagger-children.active > *:nth-child(4) { transition-delay: 0.4s; }
+        
+        .stagger-children.active > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Text selection styling */
+        ::selection {
+            background-color: rgba(144, 144, 144, 0.3);
+            color: #f0f0f0;
+        }
+        
+        /* Button press effect */
+        .btn-press {
+            transition: transform 0.15s ease;
+        }
+        
+        .btn-press:active {
+            transform: scale(0.96);
+        }
+        
+        /* Improved scroll to top button */
+        #scroll-top {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+        }
+        
+        #scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        #scroll-top:hover {
+            background-color: #282828;
+            border-color: #909090;
+        }
+        
+        #scroll-top svg {
+            transition: transform 0.2s ease;
+        }
+        
+        #scroll-top:hover svg {
+            transform: translateY(-2px);
+        }
+        
+        /* Link hover effect in navigation */
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #d0d0d0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Project card hover effect */
+        .project-card .icon-container {
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .icon-container {
+            transform: translateY(-3px) scale(1.05);
+        }
+        
+        /* Custom cursor for clickable elements */
+        .cursor-hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="bg-noir font-sans text-chalk">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-noir/80 backdrop-blur-lg border-b border-slate/20">
+        <div class="container mx-auto py-4 px-4 md:px-8 flex justify-between items-center">
+            <a href="#top" class="font-display text-xl tracking-tight btn-press">AN</a>
+            
+            <button id="nav-toggle" class="md:hidden flex items-center btn-press">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+            
+            <nav class="hidden md:flex space-x-8 items-center text-sm">
+                <a href="#about" class="hover:text-smoke transition-colors nav-link">ABOUT</a>
+                <a href="#projects" class="hover:text-smoke transition-colors nav-link">PROJECTS</a>
+                <a href="#skills" class="hover:text-smoke transition-colors nav-link">SKILLS</a>
+                <a href="#contact" class="hover:text-smoke transition-colors nav-link">CONTACT</a>
+                <a href="https://drive.google.com/file/d/1JYx_2dq32XId5ecpFpzrl3UOWtmAT4dQ/view?usp=sharing" target="_blank" 
+                   class="border border-smoke px-4 py-1.5 hover:bg-slate transition-all ml-2 btn-press">
+                    RESUME
+                </a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-noir-light border-t border-slate/20 px-4 py-3">
+            <div class="flex flex-col space-y-4 text-sm stagger-children">
+                <a href="#about" class="py-2 hover:text-smoke transition-colors">ABOUT</a>
+                <a href="#projects" class="py-2 hover:text-smoke transition-colors">PROJECTS</a>
+                <a href="#skills" class="py-2 hover:text-smoke transition-colors">SKILLS</a>
+                <a href="#contact" class="py-2 hover:text-smoke transition-colors">CONTACT</a>
+                <a href="https://drive.google.com/file/d/1B2RqqhR4LLuUP8gBum7ZP_LJVBy-y6VK/view?usp=sharing" target="_blank" 
+                   class="border border-smoke py-2 px-4 text-center hover:bg-slate transition-all btn-press">
+                    RESUME
+                </a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Running Text Banner -->
+    <div class="w-full overflow-hidden border-b border-slate/20 mt-16">
+        <div class="py-4 bg-noir-lighter">
+            <div class="marquee inline-block mt-1">
+                <span class="mx-4 text-silver font-display">DEVELOPER</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">DATA SCIENCE</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">PYTHON</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">DJANGO</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">ML</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">ARTIFICIAL INTELLIGENCE</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">TAILWIND</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">REACT.JS</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">REACT NATIVE</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">HTML-CSS</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">DATA SCIENCE</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">PYTHON</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">REACT NATIVE</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">ARTIFICIAL INTELLIGENCE</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">TAILWIND</span>
+                <span class="mx-4 text-silver">•</span>
+                <span class="mx-4 text-silver font-display">REACT.JS</span>
+                <span class="mx-4 text-silver">•</span>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="top" class="min-h-[85vh] relative flex items-center px-4 md:px-8 py-16">
+            <!-- Hero Background Image -->
+            <div class="absolute inset-0 z-0">
+                <img src="/static/images/pic.png" alt="" class="w-full h-full object-cover opacity-100" />
+                <div class="absolute inset-0 bg-gradient-to-r from-noir via-noir/40 to-noir/30"></div>
+            </div>
+            
+            <!-- Content -->
+            <div class="max-w-6xl w-full mx-auto z-10 relative">
+                <div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <div class="lg:col-span-8 reveal">
+                        <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                            Anas Nasim <span class="stroke-text">—</span> <br>
+                            <span class="text-white/60 font-normal">Developer & Gamer</span>
+                        </h1>
+                        <p class="text-grey-700 max-w-xl mb-8 text-lg leading-relaxed">
+                            Building with Python, Django, and Machine Learning. 
+                            Focused on creating practical, innovative solutions at the intersection of software development and data science.
+                        </p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#projects" class="border border-chalk px-6 py-3 hover:bg-slate transition-all">
+                                VIEW PROJECTS
+                            </a>
+                            <a href="#contact" class="bg-chalk text-noir px-6 py-3 hover:bg-smoke transition-all">
+                                GET IN TOUCH
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-4 hidden lg:block">
+                        <!-- Intentionally left empty for layout balance -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Divider -->
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="border-t border-slate/30"></div>
+        </div>
+        
+        <!-- About Section -->
+        <section id="about" class="py-24 px-4 md:px-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-4 reveal">
+                    <h2 class="text-xs text-silver mb-1 tracking-widest">ABOUT ME</h2>
+                    <h3 class="font-display text-3xl mb-6">Background</h3>
+                    <p class="text-silver mb-6 leading-relaxed">
+                        Computer Science student at Manipal University Jaipur, currently learning Django & React Native.
+                    </p>
+                    <p class="text-silver leading-relaxed">
+                        My journey spans AI, data science, and software development—with a focus on building solutions that address real-world problems effectively.
+                    </p>
+                </div>
+                
+                <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
+                    <!-- Education -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-4">Education</h3>
+                        <div class="mb-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-medium">B.Tech in CSE</h4>
+                                <span class="text-silver text-sm">2021-2025</span>
+                            </div>
+                            <p class="text-silver text-sm">Manipal University Jaipur</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-medium">Science (CBSE)</h4>
+                                <span class="text-silver text-sm">2020-2021</span>
+                            </div>
+                            <p class="text-silver text-sm">St. Thomas' School, Dwarka</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Experience -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-4">Experience</h3>
+                        <div class="mb-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-medium">Software Developer Intern</h4>
+                                <span class="text-silver text-sm">Jan 2025-Present</span>
+                            </div>
+                            <p class="text-silver text-sm">Techcurators, Delhi</p>
+                        </div>
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="font-medium">Data Science Intern</h4>
+                                <span class="text-silver text-sm">Jun-Jul 2024</span>
+                            </div>
+                            <p class="text-silver text-sm">Acuity Knowledge Partners</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Achievements -->
+                    <div class="bg-noir-light border border-slate/20 p-6 md:col-span-2">
+                        <h3 class="font-display text-lg mb-4">Notable Achievements</h3>
+                        <ul class="text-silver space-y-2 list-disc pl-5">
+                            <li>Incubated startup "Solum" in university's AIC (Atal Incubation Centre)</li>
+                            <li>Selected for "Innovation, Design, and Entrepreneurship (IDE) Bootcamp" 2024</li>
+                            <li>Multiple certifications in Machine Learning, Data Science, and Programming</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 bg-noir-light px-4 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16 text-center reveal">
+                    <h2 class="text-xs text-silver mb-1 tracking-widest">FEATURED WORK</h2>
+                    <h3 class="font-display text-4xl">Projects</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Project 1 -->
+                    <div class="project-card bg-noir border border-slate/20 reveal">
+                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                            <span class="text-5xl">📄</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-display text-xl">ChatPDF Gemini</h3>
+                                <a href="https://github.com/AnasNasim12/ChatWithPDF" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                            </div>
+                            <p class="text-silver mb-5 leading-relaxed">
+                                A web application that utilizes Google's Gemini model to extract insights and answer questions from uploaded PDF documents.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Gemini</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Streamlit</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card bg-noir border border-slate/20 reveal">
+                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                            <span class="text-5xl">📚</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-display text-xl">eBook Generator</h3>
+                                <a href="https://github.com/AnasNasim12/ebookgen" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                            </div>
+                            <p class="text-silver mb-5 leading-relaxed">
+                                Python tool that automatically generates formatted eBooks with rich content based on user-provided topics and preferences.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Google AI</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Torch</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-card bg-noir border border-slate/20 reveal">
+                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                            <span class="text-5xl">🖼️</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-display text-xl">AI Image Classifier</h3>
+                                <a href="https://github.com/AnasNasim12/AIArtVSRealArt" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                            </div>
+                            <p class="text-silver mb-5 leading-relaxed">
+                                Machine learning project that distinguishes between AI-generated and authentic human-created artistic images.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">PyTorch</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Pandas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 4 -->
+                    <div class="project-card bg-noir border border-slate/20 reveal">
+                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                            <span class="text-5xl">🤖</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-display text-xl">HuggingFace Processor</h3>
+                                <a href="https://github.com/AnasNasim12/HuggingFaceNLP" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                            </div>
+                            <p class="text-silver mb-5 leading-relaxed">
+                                Flask-based web application for text processing leveraging HuggingFace's powerful NLP models and inference API.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Flask</span>
+                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">HuggingFace</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 px-4 md:px-8">
+            <div class="max-w-6xl mx-auto">
+                <div class="mb-16 text-center reveal">
+                    <h2 class="text-xs text-silver mb-1 tracking-widest">EXPERTISE</h2>
+                    <h3 class="font-display text-4xl">Technical Skills</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+                    <!-- Languages -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-6 flex items-center">
+                            <span class="text-xl mr-3">💻</span> Languages
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Python</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Java</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">JavaScript</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">C</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">R</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Web Development -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-6 flex items-center">
+                            <span class="text-xl mr-3">🌐</span> Web Development
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">HTML/CSS</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Django</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Flask</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">FastAPI</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">React Native</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Tailwind</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Data Science -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-6 flex items-center">
+                            <span class="text-xl mr-3">📊</span> Data Science
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">pandas</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">NumPy</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Matplotlib</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">seaborn</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">scikit-learn</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Machine Learning -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-6 flex items-center">
+                            <span class="text-xl mr-3">🧠</span> Machine Learning
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">TensorFlow</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">PyTorch</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">HuggingFace</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Transformers</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">keras</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Tools -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-6 flex items-center">
+                            <span class="text-xl mr-3">🔧</span> Tools & Technologies
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Git</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">SQL</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">GCP</span>
+                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Docker</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Certifications -->
+                    <div class="bg-noir-light border border-slate/20 p-6">
+                        <h3 class="font-display text-lg mb-6 flex items-center">
+                            <span class="text-xl mr-3">🏆</span> Certifications
+                        </h3>
+                        <ul class="text-silver space-y-2 text-sm">
+                            <li>• Java OOP Programming <a href="https://coursera.org/share/12560d9bf67cd8cbe6d865faaac61f8d" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
+                            <li>• Agile Project Management <a href="https://coursera.org/share/8bb191f7adb564d4deb8d406fcbec8fa" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
+                            <li>• ML: Python & R <a href="https://www.udemy.com/certificate/UC-e33a4896-4153-4528-910c-6fd781eb5e77/" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
+                            <li>• DSA in C <a href="https://www.udemy.com/certificate/UC-3a7fc166-2cd6-41a0-8a66-3dca351d5283/" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-noir-light px-4 md:px-8">
+            <div class="max-w-4xl mx-auto text-center reveal">
+                <h2 class="text-xs text-silver mb-1 tracking-widest">GET IN TOUCH</h2>
+                <h3 class="font-display text-4xl mb-8">Let's Connect</h3>
+                <p class="text-silver mb-12 max-w-2xl mx-auto leading-relaxed">
+                    I'm open to collaboration opportunities, internships, and project discussions. Feel free to reach out if you'd like to connect or learn more about my work.
+                </p>
+                
+                <div class="max-w-xl mx-auto p-8 bg-noir border border-slate/20">
+                    <div class="flex justify-center mb-8">
+                        <img src="/static/images/pfp.jpeg" alt="Anas Nasim" class="w-20 h-20 rounded-full object-cover" />
+                    </div>
+                    <h4 class="font-display text-xl mb-1">Anas Nasim</h4>
+                    <p class="text-silver mb-8">Computer Science Student & Developer</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+                        <a href="mailto:anasnasim1@gmail.com" class="flex items-center justify-center bg-noir-lighter border border-slate/20 p-4 group hover:bg-slate/10 transition-colors btn-press">
+                            <i class="fas fa-envelope mr-3 group-hover:text-chalk"></i>
+                            <span class="text-silver group-hover:text-chalk">anasnasim1@gmail.com</span>
+                        </a>
+                        <a href="tel:+919971464628" class="flex items-center justify-center bg-noir-lighter border border-slate/20 p-4 group hover:bg-slate/10 transition-colors btn-press">
+                            <i class="fas fa-phone mr-3 group-hover:text-chalk"></i>
+                            <span class="text-silver group-hover:text-chalk">+91 9971464628</span>
+                        </a>
+                    </div>
+                    
+                    <div class="flex justify-center space-x-6">
+                        <a href="https://github.com/AnasNasim12" target="_blank" aria-label="GitHub" 
+                           class="h-10 w-10 flex items-center justify-center rounded-full border border-slate/20 text-silver hover:text-chalk hover:border-chalk transition-colors btn-press">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/anasnasim12" target="_blank" aria-label="LinkedIn" 
+                           class="h-10 w-10 flex items-center justify-center rounded-full border border-slate/20 text-silver hover:text-chalk hover:border-chalk transition-colors btn-press">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://steamcommunity.com/id/fookinlasehsoights" target="_blank" aria-label="Steam" 
+                           class="h-10 w-10 flex items-center justify-center rounded-full border border-slate/20 text-silver hover:text-chalk hover:border-chalk transition-colors btn-press">
+                            <i class="fab fa-steam"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-slate/20 py-12 px-4 text-center text-silver">
+        <p class="mb-2 text-lg">خدا حافظ</p>
+        <p class="text-sm">© Anas Nasim 2025. All rights reserved.</p>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="fixed bottom-8 right-8 h-10 w-10 bg-noir-light border border-slate/20 flex items-center justify-center rounded-full shadow-lg opacity-0 transition-all duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 15l7-7 7 7" />
+        </svg>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Navigation
+        document.getElementById('nav-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+            
+            // Apply staggered animation when showing menu
+            if (!mobileMenu.classList.contains('hidden')) {
+                setTimeout(() => {
+                    mobileMenu.querySelector('.stagger-children').classList.add('active');
+                }, 50);
+            } else {
+                mobileMenu.querySelector('.stagger-children').classList.remove('active');
+            }
+        });
+        
+        // Enhanced Scroll to Top Button
+        const scrollTopButton = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 400) {
+                scrollTopButton.classList.add('visible');
+            } else {
+                scrollTopButton.classList.remove('visible');
+            }
+        });
+        
+        scrollTopButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create a smoother animation with requestAnimationFrame
+            const scrollToTop = () => {
+                const position = document.documentElement.scrollTop || document.body.scrollTop;
+                if (position > 0) {
+                    window.requestAnimationFrame(scrollToTop);
+                    window.scrollTo(0, position - position / 8);
+                }
+            };
+            
+            window.requestAnimationFrame(scrollToTop);
+        });
+        
+        // Improved Reveal Animation on Scroll with IntersectionObserver
+        document.addEventListener('DOMContentLoaded', function() {
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            // Create observer for reveal animations
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.15
+            });
+            
+            // Observe all reveal elements
+            revealElements.forEach(element => {
+                revealObserver.observe(element);
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        // Close mobile menu if open
+                        if (!document.getElementById('mobile-menu').classList.contains('hidden')) {
+                            document.getElementById('mobile-menu').classList.add('hidden');
+                            document.getElementById('mobile-menu').querySelector('.stagger-children').classList.remove('active');
+                        }
+                        
+                        // Calculate header height for offset
+                        const headerHeight = document.querySelector('header').offsetHeight;
+                        const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                        
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Add subtle hover effects to buttons and interactive elements
+            const interactiveElements = document.querySelectorAll('a, button, .tag-pill');
+            interactiveElements.forEach(element => {
+                element.classList.add('cursor-hover');
+            });
+        });
+        
+        // Add page transition effect
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            
+            // Initially activate visible elements
+            const revealOnLoad = function() {
+                const revealElements = document.querySelectorAll('.reveal');
+                for (let i = 0; i < revealElements.length; i++) {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = revealElements[i].getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < windowHeight - elementVisible) {
+                        revealElements[i].classList.add('active');
+                    }
+                }
+            };
+            
+            // Run once on load
+            setTimeout(revealOnLoad, 100);
+        });
+    </script>
+</body>
+</html>
