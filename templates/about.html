@@ -6,10 +6,10 @@
     <title>Anas Nasim | Developer</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/static/images/favicon.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/static/images/favicon.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/static/images/favicon.png">
-    <link rel="manifest" href="/static/site.webmanifest">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
     <meta name="theme-color" content="#090909">
     
     <script src="https://cdn.tailwindcss.com"></script>
@@ -298,7 +298,7 @@
         <section id="top" class="min-h-[85vh] relative flex items-center px-4 md:px-8 py-16">
             <!-- Hero Background Image -->
             <div class="absolute inset-0 z-0">
-                <img src="/static/images/pic.png" alt="" class="w-full h-full object-cover opacity-100" />
+                <img src="{{ url_for('static', filename='images/pic.png') }}" alt="" class="w-full h-full object-cover opacity-100" />
                 <div class="absolute inset-0 bg-gradient-to-r from-noir via-noir/40 to-noir/30"></div>
             </div>
             
@@ -611,7 +611,7 @@
                 
                 <div class="max-w-xl mx-auto p-8 bg-noir border border-slate/20">
                     <div class="flex justify-center mb-8">
-                        <img src="/static/images/pfp.jpeg" alt="Anas Nasim" class="w-20 h-20 rounded-full object-cover" />
+                        <img src="{{ url_for('static', filename='images/pfp.jpeg') }}" alt="Anas Nasim" class="w-20 h-20 rounded-full object-cover" />
                     </div>
                     <h4 class="font-display text-xl mb-1">Anas Nasim</h4>
                     <p class="text-silver mb-8">Computer Science Student & Developer</p>
