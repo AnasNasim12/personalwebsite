@@ -12,5 +12,9 @@ def manifest():
 def index():
     return render_template('about.html')
 
+@app.route('/aditi')
+def aditi():
+    return render_template('aditi.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

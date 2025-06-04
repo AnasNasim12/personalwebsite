@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditi's Corner</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 28s10-8 10-16c0-4.4-3.6-8-8-8-2.2 0-4.2 0.9-5.7 2.3C10.8 4.9 8.8 4 6.6 4c-4.4 0-8 3.6-8 8 0 8 10 16 10 16z' fill='%23dc143c'/%3E%3C/svg%3E">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .retro-font { 
+            font-family: 'MS Sans Serif', 'Geneva', 'sans-serif'; 
+            font-size: 12px;
+        }
+        .pixel-font { 
+            font-family: 'Terminal', 'Monaco', 'Menlo', 'Consolas', monospace; 
+            image-rendering: pixelated; 
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .header-font {
+            font-family: 'Impact', 'Arial Black', 'Helvetica', sans-serif;
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+        .comic-font {
+            font-family: 'Comic Sans MS', 'Chalkduster', 'Bradley Hand', cursive;
+        }
+        .letter-font {
+            font-family: 'Times New Roman', 'Georgia', serif;
+            line-height: 1.6;
+        }
+        
+        .pixel-border { 
+            border: 6px outset #ff69b4;
+            image-rendering: pixelated;
+            box-shadow: inset 2px 2px 0px #ffb6c1, inset -2px -2px 0px #dc143c;
+        }
+        
+        .deep-border {
+            border: 8px ridge #ff1493;
+            image-rendering: pixelated;
+        }
+        
+        .blink { animation: blink 0.8s infinite; }
+        @keyframes blink { 50% { opacity: 0; } }
+        
+        .sparkle { animation: sparkle 1.5s infinite; transform-origin: center; }
+        @keyframes sparkle { 
+            0% { transform: scale(1) rotate(0deg); filter: hue-rotate(0deg); }
+            25% { transform: scale(1.3) rotate(90deg); filter: hue-rotate(90deg); }
+            50% { transform: scale(0.8) rotate(180deg); filter: hue-rotate(180deg); }
+            75% { transform: scale(1.2) rotate(270deg); filter: hue-rotate(270deg); }
+            100% { transform: scale(1) rotate(360deg); filter: hue-rotate(360deg); }
+        }
+        
+        .float { animation: float 2s ease-in-out infinite; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(45deg, #ff69b4, #ff1493, #dc143c, #ff6347, #ff69b4, #ff20b2, #ff1493);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 2s linear infinite;
+            font-weight: bold;
+        }
+        
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+        
+        .retro-bg {
+            background: 
+                radial-gradient(circle at 25% 25%, #ff69b4 2px, transparent 2px),
+                radial-gradient(circle at 75% 75%, #ff1493 2px, transparent 2px),
+                linear-gradient(45deg, #ffb6c1 25%, #ffc0cb 25%, #ffc0cb 50%, #ffb6c1 50%, #ffb6c1 75%, #ffc0cb 75%);
+            background-size: 20px 20px, 20px 20px, 40px 40px;
+            image-rendering: pixelated;
+        }
+        
+        .gif-bg {
+            background: repeating-conic-gradient(from 0deg, #ff69b4, #ff1493, #dc143c, #ff69b4);
+            animation: rotate 3s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        
+        marquee { 
+            color: #ffffff; 
+            font-weight: bold; 
+            text-shadow: 2px 2px 0px #8b008b;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            font-size: 16px;
+        }
+        
+        .pixel-heart { 
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #ff1493;
+            transform: rotate(45deg);
+            position: relative;
+            animation: pulse 1s infinite;
+        }
+        
+        .pixel-heart::before,
+        .pixel-heart::after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: #ff1493;
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .pixel-heart::before {
+            top: -10px;
+            left: 0;
+        }
+        
+        .pixel-heart::after {
+            left: -10px;
+            top: 0;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: rotate(45deg) scale(1); }
+            50% { transform: rotate(45deg) scale(1.2); }
+        }
+        
+        .construction {
+            animation: construction 2s infinite;
+        }
+        
+        @keyframes construction {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+        
+        .ascii-art {
+            font-family: 'Courier New', 'Courier', monospace;
+            white-space: pre;
+            line-height: 1;
+            font-size: 10px;
+            color: #8b008b;
+            font-weight: bold;
+            text-shadow: 1px 1px 0px #ffffff;
+        }
+        
+        .retro-button {
+            border: 4px outset #ff69b4;
+            background: linear-gradient(145deg, #ff69b4, #ff1493);
+            font-family: 'MS Sans Serif', 'Arial', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: none;
+            font-size: 11px;
+        }
+        
+        .retro-button:active {
+            border: 4px inset #ff69b4;
+            background: linear-gradient(145deg, #ff1493, #ff69b4);
+        }
+        
+        .pixel-emoji {
+            font-family: 'Courier New', 'Terminal', monospace;
+            font-size: 24px;
+            image-rendering: pixelated;
+            filter: contrast(200%) brightness(120%);
+        }
+        
+        .retro-popup {
+            position: fixed;
+            z-index: 9999;
+            border: 4px outset #ff69b4;
+            background: linear-gradient(145deg, #ffb6c1, #ffc0cb);
+            font-family: 'MS Sans Serif', 'Arial', sans-serif;
+            font-weight: bold;
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            min-width: 200px;
+            padding: 8px;
+        }
+        
+        .popup-title {
+            background: linear-gradient(90deg, #ff1493, #8b008b);
+            color: white;
+            padding: 2px 8px;
+            margin: -8px -8px 8px -8px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .popup-close {
+            background: #c0c0c0;
+            border: 1px outset #c0c0c0;
+            width: 16px;
+            height: 14px;
+            font-size: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .popup-close:active {
+            border: 1px inset #c0c0c0;
+        }
+        
+        .slide-in-top {
+            animation: slideInTop 0.5s ease-out forwards;
+        }
+        
+        .slide-in-bottom {
+            animation: slideInBottom 0.5s ease-out forwards;
+        }
+        
+        .slide-in-left {
+            animation: slideInLeft 0.5s ease-out forwards;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.5s ease-out forwards;
+        }
+        
+        .bounce-in {
+            animation: bounceIn 0.6s ease-out forwards;
+        }
+        
+        .wobble {
+            animation: wobble 0.8s ease-in-out forwards;
+        }
+        
+        @keyframes slideInTop {
+            from { top: -200px; opacity: 0; }
+            to { top: 20px; opacity: 1; }
+        }
+        
+        @keyframes slideInBottom {
+            from { bottom: -200px; opacity: 0; }
+            to { bottom: 20px; opacity: 1; }
+        }
+        
+        @keyframes slideInLeft {
+            from { left: -300px; opacity: 0; }
+            to { left: 20px; opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { right: -300px; opacity: 0; }
+            to { right: 20px; opacity: 1; }
+        }
+        
+        @keyframes bounceIn {
+            0% { transform: scale(0.3) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.05) rotate(180deg); }
+            70% { transform: scale(0.9) rotate(270deg); }
+            100% { transform: scale(1) rotate(360deg); opacity: 1; }
+        }
+        
+        @keyframes wobble {
+            0% { transform: translateX(0px) rotate(0deg); }
+            15% { transform: translateX(-25px) rotate(-5deg); }
+            30% { transform: translateX(20px) rotate(3deg); }
+            45% { transform: translateX(-15px) rotate(-3deg); }
+            60% { transform: translateX(10px) rotate(2deg); }
+            75% { transform: translateX(-5px) rotate(-1deg); }
+            100% { transform: translateX(0px) rotate(0deg); }
+        }
+        
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .matrix-char {
+            position: absolute;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            animation: matrixFall linear infinite;
+        }
+        
+        @keyframes matrixFall {
+            to { transform: translateY(100vh); }
+        }
+        
+        .disco-mode {
+            animation: discoColors 0.5s infinite;
+        }
+        
+        @keyframes discoColors {
+            0% { filter: hue-rotate(0deg) saturate(150%); }
+            25% { filter: hue-rotate(90deg) saturate(200%); }
+            50% { filter: hue-rotate(180deg) saturate(150%); }
+            75% { filter: hue-rotate(270deg) saturate(200%); }
+            100% { filter: hue-rotate(360deg) saturate(150%); }
+        }
+        
+        .alert-box {
+            border: 2px outset #c0c0c0;
+            background: #c0c0c0;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-size: 11px;
+            padding: 16px;
+            box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .error-icon {
+            width: 32px;
+            height: 32px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%23ff0000"/><text x="16" y="22" text-anchor="middle" fill="white" font-family="Arial" font-size="18" font-weight="bold">!</text></svg>');
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        
+        .info-icon {
+            width: 32px;
+            height: 32px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="14" fill="%230080ff"/><text x="16" y="22" text-anchor="middle" fill="white" font-family="Arial" font-size="18" font-weight="bold">i</text></svg>');
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        
+        /* New 90s popup styles */
+        .mega-popup {
+            position: fixed;
+            z-index: 10000;
+            border: 6px outset #008080;
+            background: linear-gradient(145deg, #c0c0c0, #e0e0e0);
+            font-family: 'MS Sans Serif', 'Arial', sans-serif;
+            font-weight: bold;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.7);
+            min-width: 300px;
+            padding: 12px;
+        }
+        
+        .mega-popup-title {
+            background: linear-gradient(90deg, #000080, #0000ff);
+            color: white;
+            padding: 4px 12px;
+            margin: -12px -12px 12px -12px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px outset #000080;
+        }
+        
+        .notification-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9998;
+            border: 4px ridge #ff8c00;
+            background: linear-gradient(145deg, #ffffe0, #fffacd);
+            font-family: 'Comic Sans MS', cursive;
+            box-shadow: 6px 6px 12px rgba(0,0,0,0.6);
+            min-width: 250px;
+            padding: 10px;
+            animation: slideUpNotification 0.6s ease-out forwards;
+        }
+        
+        .virus-alert {
+            position: fixed;
+            z-index: 10001;
+            border: 4px solid #ff0000;
+            background: #ffff00;
+            color: #ff0000;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            box-shadow: 0 0 20px #ff0000;
+            padding: 15px;
+            animation: virusShake 0.1s infinite;
+        }
+        
+        .browser-window {
+            position: fixed;
+            z-index: 9997;
+            border: 2px outset #c0c0c0;
+            background: #c0c0c0;
+            font-family: 'MS Sans Serif', 'Arial', sans-serif;
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            min-width: 400px;
+            resize: both;
+            overflow: auto;
+        }
+        
+        .browser-title-bar {
+            background: linear-gradient(90deg, #0080ff, #0040ff);
+            color: white;
+            padding: 3px 8px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+        }
+        
+        .browser-content {
+            background: white;
+            padding: 10px;
+            border: 2px inset #c0c0c0;
+            min-height: 200px;
+        }
+        
+        @keyframes slideUpNotification {
+            from { bottom: -300px; opacity: 0; }
+            to { bottom: 20px; opacity: 1; }
+        }
+        
+        @keyframes virusShake {
+            0% { transform: translate(0px, 0px) rotate(0deg); }
+            25% { transform: translate(-2px, 2px) rotate(1deg); }
+            50% { transform: translate(2px, -2px) rotate(-1deg); }
+            75% { transform: translate(-2px, -2px) rotate(1deg); }
+            100% { transform: translate(2px, 2px) rotate(0deg); }
+        }
+        
+        .zoom-in {
+            animation: zoomIn 0.5s ease-out forwards;
+        }
+        
+        .fade-zoom {
+            animation: fadeZoom 0.7s ease-out forwards;
+        }
+        
+        .spin-in {
+            animation: spinIn 0.8s ease-out forwards;
+        }
+        
+        .elastic-bounce {
+            animation: elasticBounce 1s ease-out forwards;
+        }
+        
+        @keyframes zoomIn {
+            from { transform: scale(0.1); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        @keyframes fadeZoom {
+            0% { transform: scale(0.3) rotate(-180deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(0deg); opacity: 0.8; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        @keyframes spinIn {
+            0% { transform: scale(0.1) rotate(-360deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+        
+        @keyframes elasticBounce {
+            0% { transform: scale(0.1); opacity: 0; }
+            20% { transform: scale(1.1); }
+            40% { transform: scale(0.9); }
+            60% { transform: scale(1.05); }
+            80% { transform: scale(0.95); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .taskbar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+            border-top: 2px outset #c0c0c0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            padding: 0 4px;
+        }
+        
+        .start-button {
+            background: linear-gradient(145deg, #c0c0c0, #a0a0a0);
+            border: 2px outset #c0c0c0;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 11px;
+            padding: 4px 8px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+        
+        .start-button:active {
+            border: 2px inset #c0c0c0;
+        }
+        
+        .taskbar-app {
+            background: linear-gradient(145deg, #c0c0c0, #a0a0a0);
+            border: 2px outset #c0c0c0;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            font-weight: normal;
+            font-size: 11px;
+            padding: 2px 6px;
+            cursor: pointer;
+            margin-right: 4px;
+            min-width: 80px;
+        }
+        
+        .taskbar-app:active {
+            border: 2px inset #c0c0c0;
+        }
+        
+        .notepad-window {
+            position: fixed;
+            z-index: 9996;
+            border: 2px outset #c0c0c0;
+            background: #c0c0c0;
+            font-family: 'MS Sans Serif', 'Arial', sans-serif;
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            width: 400px;
+            height: 300px;
+            resize: both;
+            overflow: auto;
+        }
+        
+        .notepad-title-bar {
+            background: linear-gradient(90deg, #0080ff, #0040ff);
+            color: white;
+            padding: 3px 8px;
+            font-size: 11px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: move;
+        }
+        
+        .notepad-menu {
+            background: #c0c0c0;
+            padding: 2px;
+            border-bottom: 1px solid #808080;
+            font-size: 11px;
+        }
+        
+        .notepad-content {
+            background: white;
+            padding: 8px;
+            border: 2px inset #c0c0c0;
+            height: calc(100% - 60px);
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: black;
+            overflow: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body class="retro-bg min-h-screen retro-font" style="cursor: crosshair;">
+    <!-- Marquee Header -->
+    <div class="gif-bg p-1">
+        <marquee class="text-lg" behavior="scroll" direction="left" scrollamount="8">
+             *** WELCOME TO ADITI'S HOMEPAGE *** THIS IS YOUR SPECIAL PLACE BABY ***  *** WELCOME TO ADITI'S HOMEPAGE *** THIS IS YOUR SPECIAL PLACE BABY *** *** WELCOME TO ADITI'S HOMEPAGE *** THIS IS YOUR SPECIAL PLACE BABY ***  *** WELCOME TO ADITI'S HOMEPAGE *** THIS IS YOUR SPECIAL PLACE BABY ***
+        </marquee>
+    </div>
+
+    <!-- Main Container -->
+    <div class="p-2 max-w-5xl mx-auto">
+        <!-- Header Section -->
+        <div class="text-center mb-4 deep-border p-4" style="background: linear-gradient(45deg, #ffb6c1, #ff69b4, #ffb6c1);">
+            <h1 class="text-8xl font-bold rainbow-text mb-4 sparkle header-font">ADITI</h1>
+            <div class="flex justify-center space-x-8 mb-4">
+                <div class="pixel-heart float"></div>
+                <img src="{{ url_for('static', filename='images/star.png') }}" 
+                     alt="Star" 
+                     class="float" 
+                     style="animation-delay: 0.5s; width: 60px; height: 60px; image-rendering: pixelated;">
+                <div class="pixel-heart float" style="animation-delay: 1s;"></div>
+                <img src="{{ url_for('static', filename='images/8thnote.png') }}" 
+                     alt="Music Note" 
+                     class="float" 
+                     style="animation-delay: 1.5s; width: 60px; height: 60px; image-rendering: pixelated;">
+                <div class="pixel-heart float" style="animation-delay: 2s;"></div>
+            </div>
+            <p class="text-2xl font-bold blink pixel-font" style="color: #ffffff; text-shadow: 3px 3px 0px #8b008b;">
+                >>> MAXIMUM CUTENESS DETECTED <<<
+            </p>
+        </div>
+
+        <!-- Love Letter Section -->
+        <div class="mb-4 deep-border p-4" style="background: #ffb6c1;">
+            <div class="text-center mb-4">
+                <span class="text-2xl font-bold comic-font" style="color: #dc143c;">
+                    ♥♥♥ SPECIAL MESSAGE FOR ADITI ♥♥♥
+                </span>
+            </div>
+            <div class="pixel-border p-4 letter-font text-sm" style="background: #ffc0cb; color: #8b008b; height: 300px; overflow-y: scroll;">
+                <div class="text-center mb-4">
+                    <strong style="color: #dc143c;">Dear Aditi,</strong>
+                </div>
+                
+                <p class="mb-3">I've never been good at telling people how I feel but you really made me want to try.</p>
+                
+                <p class="mb-3">You are the kind of person who lights up lives without even trying, and I am endlessly grateful that mine happens to be one of them.</p>
+                
+                <p class="mb-3">I wish you knew how much time I spend throughout my day thinking of you, how I picture you wherever I go, how I fondly recall everything you say and how I wish I could ever convince you that you're truly a very beautiful person, and how absolutely mesmerizing you are. There has never been a single time or second where I didn't think; "Oh man she's so pretty, what's she doing wasting her time with me".</p>
+                
+                <p class="mb-3">It's impossible to live without constantly being able to see you, not being able to hold you. It's bad enough we get along so well.</p>
+                
+                <p class="mb-3">Every single time I see you I feel like it's absolutely necessary and important to just listen and admire you. Every single time you tell me about your life makes me even more interested in it. All those little people and their miniscule problems are so nicely narrated by you. I love to hear the endless stories and incidents that happen with you. I love to hear the silence when you are tired. I love to fondly remember everything you say the next day. Whenever you speak, whenever I piss you off, whenever the times you said things that caught me like a deer in headlights.</p>
+                
+                <p class="mb-3">Not to steal your thunder, but... I must broach about this. Time has always been my enemy. Nothing works out exactly as I imagine, however, I'm prepared to go against all odds if that would be what it takes to have you. If I could stay in this town for the rest of my life just so I could get to have a drink with you everyday I'd do it. Things will pass, I won't get to see your adorable face often and I perhaps will not be as big of a part of your life when that happens. If I could just stay. I want to show you my life, where I grew up, the only other place where I truly feel good, apart from sitting next to you.</p>
+                
+                <p class="mb-3">But we can't sign off on such a dull note. Let's try this again. There's a part of me that would give a hefty penny to peel back the layers of your mind, to understand what keeps you awake at night, and what moments make you smile when no one is looking. I wish you'd tell me why you think you're so horrible. I wish there was more I'd know of you.</p>
+                
+                <p class="mb-3">I'm waiting for you to come wrap your arms around me. I'm waiting for you to stop me from doing my stupid little things. I'm waiting for that smile you have when you walk up towards me.</p>
+                
+                <p class="mb-3">By now you're probably thinking, when did he write all this? I started off this letter with the intention of confessing my love to you. I was afraid. I am afraid. I want you to be omnipresent in my life. You're a habit I cannot get rid of and won't even complain.</p>
+                
+                <p class="mb-3">I hope you know how much I love you. I loved you since long before writing this letter. I love it when you call me. I love it when you say "baat karo aap merese". It melts my heart. I am immediately ready to put down everything and just listen to you speak.</p>
+                
+                <p class="mb-3">I wish you knew how much you matter to me. I don't always show it on my face, but I always try to prove how much I value you everyday. I'm that person in your life who will always be there even when the world falls down. I wish I could lay you down in a bed of roses. Your love gives me a heart contusion or whatever fiona apple said.</p>
+                
+                <p class="mb-3">Lastly, for the record, you are and you look absolutely beautiful. You're the prettiest most funniest girl I know. I am deeply obsessed with you. I lament every moment spent without you. I have nothing to offer you but my love. And if you ever need a reminder of how much you matter to me, come find me, I'll be right here, waiting with open arms.</p>
+                
+                <p class="mb-3">Please call me when you're done reading? It'll be nice.</p>
+                
+                <div class="text-right font-bold" style="color: #dc143c;">
+                    Yours always and forever,<br>
+                    Anas Nasim
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Table Layout (90s style) -->
+        <table class="w-full" cellpadding="8" cellspacing="4" style="background: #ff1493;">
+            <tr>
+                <!-- Love Messages -->
+                <td class="pixel-border" style="background: #ffb6c1; width: 50%;">
+                    <div class="text-center mb-2">
+                        <span class="text-lg font-bold comic-font" style="color: #8b008b;">
+                            ♥♥♥ LOVE MESSAGES ♥♥♥
+                        </span>
+                    </div>
+                    <div class="space-y-2">
+                        <div class="pixel-border p-2 retro-font" style="background: #ffc0cb;">
+                            <span class="pixel-emoji">→</span> YOU MAKE MY HEART GO BEEP BEEP! <span class="blink">♥</span>
+                        </div>
+                        <div class="pixel-border p-2 blink retro-font" style="background: #ffb6c1;">
+                            <span class="pixel-emoji">→</span> ERROR 404: CUTENESS OVERFLOW! <span class="sparkle">★</span>
+                        </div>
+                        <div class="pixel-border p-2 retro-font" style="background: #ffc0cb;">
+                            <span class="pixel-emoji">→</span> LOADING LOVE... 100% COMPLETE! <span class="blink">♥</span>
+                        </div>
+                    </div>
+                </td>
+
+                <!-- Cute Counter -->
+                <td class="pixel-border" style="background: #ffc0cb; width: 50%;">
+                    <div class="text-center">
+                        <div class="text-lg font-bold comic-font mb-2" style="color: #8b008b;">
+                            ♪♪♪ KAWAII METER ♪♪♪
+                        </div>
+                        <div class="mb-2">
+                            <img src="{{ url_for('static', filename='images/Smiley.svg') }}" 
+                                 alt="Smiley" 
+                                 class="sparkle mx-auto" 
+                                 style="width: 100px; height: 100px; image-rendering: pixelated;">
+                        </div>
+                        <div class="pixel-border p-2 mb-2" style="background: #000000; color: #ff69b4;">
+                            <div class="pixel-font blink">CUTENESS LEVEL: 9999999</div>
+                            <div class="pixel-font">STATUS: OVERLOADED</div>
+                        </div>
+                        <div class="pixel-font font-bold blink" style="color: #dc143c;">
+                            *** SYSTEM CRASH IMMINENT ***
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <!-- 90s Style Buttons -->
+                <td class="pixel-border" style="background: #ffb6c1;">
+                    <div class="text-center mb-2">
+                        <span class="text-lg font-bold comic-font" style="color: #8b008b;">
+                            ☆☆☆ ACTION BUTTONS ☆☆☆
+                        </span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="retro-button p-3 text-white">
+                            ♥ HUGS.EXE
+                        </button>
+                        <button class="retro-button p-3 text-white">
+                            ☆ KISS.BAT
+                        </button>
+                        <button class="retro-button p-3 text-white">
+                            ♪ LOVE.COM
+                        </button>
+                        <button class="retro-button p-3 text-white">
+                            ♥ CUTE.DLL
+                        </button>
+                    </div>
+                </td>
+
+                <!-- Visitor Counter -->
+                <td class="pixel-border" style="background: #ffc0cb;">
+                    <div class="text-center">
+                        <div class="text-lg font-bold comic-font mb-2" style="color: #8b008b;">
+                            ★★★ VISITOR LOG ★★★
+                        </div>
+                        <div class="pixel-border p-4 mb-2" style="background: #8b008b; color: #ffb6c1;">
+                            <div class="pixel-font text-2xl blink">VISITORS: 1337420</div>
+                            <div class="pixel-font">SINCE: 1995</div>
+                            <div class="pixel-font construction">YOU ARE #∞</div>
+                        </div>
+                        <div class="pixel-font" style="color: #dc143c;">
+                            SPECIAL GUEST DETECTED!
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+
+        <!-- Feedback Form Section -->
+        <div class="mt-4 deep-border p-4" style="background: #ffb6c1;">
+            <div class="text-center mb-4">
+                <span class="text-2xl font-bold comic-font" style="color: #8b008b;">
+                    ♥♥♥ MESSAGE CENTER ♥♥♥
+                </span>
+            </div>
+            <div class="pixel-border p-4" style="background: #ffc0cb;">
+                <div class="text-center mb-4">
+                    <span class="text-lg font-bold retro-font" style="color: #dc143c;">
+                        Please submit any complaints and suggestions for your boyfriend here or just tell me what you're doing today
+                    </span>
+                </div>
+                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
+                    <input type="hidden" name="access_key" value="7e8bea67-7777-4e9e-b6af-7a0711c8cc9a">
+                    <input type="hidden" name="subject" value="New message from Aditi ♥">
+                    <input type="hidden" name="from_name" value="Aditi Pareek">
+                    
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    
+                    <!-- Email field to satisfy Web3Forms requirements -->
+                    <input type="hidden" name="email" value="anonymous@aditi-love-page.com">
+                    
+                    <div>
+                        <textarea name="message"
+                            class="w-full p-3 pixel-border letter-font" 
+                            style="background: #ffffff; color: #000000; resize: vertical; font-size: 14px; min-height: 120px; font-family: 'Courier New', monospace;"
+                            placeholder="Type your message here... ♥"
+                            rows="6"
+                            required>
+                        </textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="retro-button p-4 text-white text-lg">
+                            ♥ SEND MESSAGE.EXE ♥
+                        </button>
+                    </div>
+                </form>
+                <div class="mt-4 text-center">
+                    <div class="pixel-border p-2 blink retro-font" style="background: #000000; color: #ff69b4;">
+                        STATUS: READY TO RECEIVE ♥
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Collage Coming Soon Section -->
+        <div class="mt-4 deep-border p-4" style="background: #ffb6c1;">
+            <div class="text-center mb-4">
+                <span class="text-2xl font-bold comic-font" style="color: #8b008b;">
+                    PHOTO GALLERY
+                </span>
+            </div>
+            <div class="pixel-border p-4" style="background: #ffc0cb;">
+                <div class="text-center">
+                    <div class="mb-4">
+                        <img src="{{ url_for('static', filename='images/aditi.jpeg') }}" 
+                             alt="Aditi" 
+                             class="mx-auto" 
+                             style="width: 200px; height: 150px; object-fit: cover; border: 5px solid #ff69b4; border-radius: 10px;">
+                    </div>
+                    <div class="text-2xl font-bold blink rainbow-text mb-4 pixel-font">
+                        ✨ LOOK AT THIS BEAUTIFUL ANGEL! ✨
+                    </div>
+                    <div class="space-y-2 retro-font" style="color: #8b008b;">
+                        <div class="pixel-border p-2" style="background: #ffffff;">
+                            💕 Displaying maximum cuteness...
+                        </div>
+                        <div class="pixel-border p-2" style="background: #ffffff;">
+                            ⭐ Beauty level: INFINITE
+                        </div>
+                        <div class="pixel-border p-2" style="background: #ffffff;">
+                            🌟 Sparkle effects: ACTIVATED
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <button class="retro-button p-3 text-white" onclick="createMegaPopup('This is the most beautiful person in the world! 😍 Isn\'t she absolutely gorgeous? 💕', 'info', 'info', 'mega')">
+                            💖 ADMIRE BEAUTY
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 90s Taskbar -->
+    <div class="taskbar">
+        <button class="start-button" onclick="showStartMenu()">Start</button>
+        <button class="taskbar-app" onclick="openNotepad()">📝 Notepad</button>
+        <div style="flex-grow: 1;"></div>
+        <div style="font-family: 'MS Sans Serif'; font-size: 11px; color: #000; margin-right: 8px;" id="clock">
+            12:34 PM
+        </div>
+    </div>
+
+    <!-- Matrix Rain Effect -->
+    <div class="matrix-rain" id="matrixRain"></div>
+
+    <!-- Floating Pixel Elements -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div class="absolute sparkle" style="top: 5%; left: 5%;">
+            <div class="pixel-heart"></div>
+        </div>
+        <div class="absolute float" style="top: 15%; right: 10%;">
+            <span class="text-4xl pixel-emoji">★</span>
+        </div>
+        <div class="absolute sparkle" style="bottom: 25%; left: 15%;">
+            <div class="pixel-heart"></div>
+        </div>
+        <div class="absolute float" style="bottom: 15%; right: 20%;">
+            <span class="text-5xl pixel-emoji">♪</span>
+        </div>
+        <div class="absolute construction" style="top: 50%; left: 5%;">
+            <span class="text-3xl pixel-emoji">☆</span>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced popup animations array (moved to top)
+        const enhancedAnimations = [
+            'slide-in-top', 'slide-in-bottom', 'slide-in-left', 'slide-in-right', 
+            'bounce-in', 'wobble', 'zoom-in', 'fade-zoom', 'spin-in', 'elastic-bounce'
+        ];
+
+        // Notepad functionality
+        function openNotepad() {
+            // Check if notepad is already open
+            if (document.querySelector('.notepad-window')) {
+                return;
+            }
+            
+            const notepad = document.createElement('div');
+            notepad.className = `notepad-window ${enhancedAnimations[Math.floor(Math.random() * enhancedAnimations.length)]}`;
+            notepad.style.top = Math.random() * 20 + 10 + '%';
+            notepad.style.left = Math.random() * 20 + 10 + '%';
+            
+            notepad.innerHTML = `
+                <div class="notepad-title-bar">
+                    <span>📝 Notepad - [Untitled]</span>
+                    <div onclick="this.closest('.notepad-window').remove()" style="cursor: pointer; padding: 0 4px; background: #ff0000; color: white;">×</div>
+                </div>
+                <div class="notepad-menu">
+                    File Edit Format View Help
+                </div>
+                <div class="notepad-content">i love u aditi
+
+♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥♥
+
+you are the most beautiful person 
+in the entire world and i am so 
+lucky to have you in my life
+
+every day with you feels like 
+a dream come true
+
+you make everything better just 
+by being yourself
+
+i love your smile
+i love your laugh  
+i love how you make me feel
+
+you are my sunshine ☀️
+you are my everything 💕
+
+- your boyfriend who adores you</div>
+            `;
+            
+            document.body.appendChild(notepad);
+            
+            // Add a popup notification
+            setTimeout(() => {
+                if (typeof createMegaPopup === 'function') {
+                    createMegaPopup('Opening Notepad.exe... 📝 Loading love message... Transfer complete! 💕', 'system', 'info', 'notification');
+                }
+            }, 100);
+        }
+
+        // Retro click effects
+        document.addEventListener('click', function(e) {
+            const effects = ['★', '♥', '☆', '♪', '♫'];
+            const effect = effects[Math.floor(Math.random() * effects.length)];
+            
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = effect;
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.fontSize = '30px';
+            sparkle.style.color = '#ff1493';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.className = 'sparkle pixel-emoji';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        });
+
+        // 90s Style Popup System
+        const popupMessages = [
+            { type: 'info', message: 'Welcome to the INFORMATION SUPERHIGHWAY! 🚗💨', icon: 'info' },
+            { type: 'warning', message: 'WARNING: Extreme cuteness detected in this area!', icon: 'error' },
+            { type: 'tip', message: 'TIP: Click anywhere for sparkle effects! ✨', icon: 'info' },
+            { type: 'alert', message: 'ALERT: You have new mail! (Just kidding, it\'s 2024)', icon: 'info' },
+            { type: 'system', message: 'SYSTEM: Love.exe is running at 100% capacity', icon: 'info' },
+            { type: 'error', message: 'ERROR 404: Boyfriend.exe has stopped responding', icon: 'error' },
+            { type: 'notification', message: 'You\'ve got mail! From: Your Secret Admirer 💌', icon: 'info' }
+        ];
+
+        const animations = ['slide-in-top', 'slide-in-bottom', 'slide-in-left', 'slide-in-right', 'bounce-in', 'wobble'];
+
+        function createRetroPopup(message, type = 'info', icon = 'info') {
+            const popup = document.createElement('div');
+            popup.className = `retro-popup ${animations[Math.floor(Math.random() * animations.length)]}`;
+            
+            const iconClass = icon === 'error' ? 'error-icon' : 'info-icon';
+            
+            popup.innerHTML = `
+                <div class="popup-title">
+                    <span>💻 ${type.toUpperCase()}</span>
+                    <div class="popup-close" onclick="this.parentElement.parentElement.remove()">×</div>
+                </div>
+                <div class="alert-box">
+                    <div class="${iconClass}"></div>
+                    <span>${message}</span>
+                    <div style="margin-top: 8px; text-align: right;">
+                        <button style="border: 1px outset #c0c0c0; background: #c0c0c0; padding: 2px 8px; font-size: 11px;" onclick="this.closest('.retro-popup').remove()">OK</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(popup);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (popup.parentNode) {
+                    popup.remove();
+                }
+            }, 5000);
+        }
+
+        // Random popup generator
+        setInterval(() => {
+            if (Math.random() < 0.15) { // 15% chance every 8 seconds
+                const randomPopup = popupMessages[Math.floor(Math.random() * popupMessages.length)];
+                createRetroPopup(randomPopup.message, randomPopup.type, randomPopup.icon);
+            }
+        }, 8000);
+
+        // Matrix rain effect
+        function createMatrixRain() {
+            const chars = '♥★☆♪♫01♥★☆♪♫01♥★☆♪♫01ADITILOVE';
+            const matrixContainer = document.getElementById('matrixRain');
+            
+            for (let i = 0; i < 20; i++) {
+                const char = document.createElement('div');
+                char.className = 'matrix-char';
+                char.textContent = chars[Math.floor(Math.random() * chars.length)];
+                char.style.left = Math.random() * 100 + '%';
+                char.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                char.style.animationDelay = Math.random() * 2 + 's';
+                char.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                matrixContainer.appendChild(char);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    if (char.parentNode) {
+                        char.remove();
+                    }
+                }, 5000);
+            }
+        }
+
+        // Start matrix effect every 10 seconds
+        setInterval(createMatrixRain, 10000);
+
+        // Disco mode toggle
+        let discoMode = false;
+        function toggleDiscoMode() {
+            discoMode = !discoMode;
+            document.body.classList.toggle('disco-mode', discoMode);
+            createRetroPopup(discoMode ? 'DISCO MODE ACTIVATED! 🕺💃' : 'DISCO MODE DEACTIVATED', 'system');
+        }
+
+        // Special button effects
+        document.querySelectorAll('.retro-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const buttonText = this.textContent.trim();
+                
+                switch(buttonText) {
+                    case '♥ HUGS.EXE':
+                        createRetroPopup('Sending virtual hugs... 🤗 Transfer complete!', 'success', 'info');
+                        break;
+                    case '☆ KISS.BAT':
+                        createRetroPopup('kiss.bat executed successfully! 😘💋', 'success', 'info');
+                        break;
+                    case '♪ LOVE.COM':
+                        createRetroPopup('Connecting to love.com... Connection established! 💕', 'network', 'info');
+                        toggleDiscoMode();
+                        break;
+                    case '♥ CUTE.DLL':
+                        createRetroPopup('cute.dll loaded! WARNING: Cuteness overload imminent!', 'warning', 'error');
+                        createMatrixRain();
+                        break;
+                }
+            });
+        });
+
+        // Enhanced click effects with popups
+        let clickCount = 0;
+        document.addEventListener('click', function(e) {
+            clickCount++;
+            
+            // Existing sparkle effect
+            const effects = ['★', '♥', '☆', '♪', '♫'];
+            const effect = effects[Math.floor(Math.random() * effects.length)];
+            
+            const sparkle = document.createElement('div');
+            sparkle.innerHTML = effect;
+            sparkle.style.position = 'fixed';
+            sparkle.style.left = e.clientX + 'px';
+            sparkle.style.top = e.clientY + 'px';
+            sparkle.style.fontSize = '30px';
+            sparkle.style.color = '#ff1493';
+            sparkle.style.pointerEvents = 'none';
+            sparkle.style.zIndex = '9999';
+            sparkle.className = 'sparkle pixel-emoji';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+
+            // Special click milestones
+            if (clickCount === 10) {
+                createRetroPopup('Wow! You\'ve clicked 10 times! You must really like this page! 🎉', 'achievement', 'info');
+            } else if (clickCount === 25) {
+                createRetroPopup('25 clicks! You\'re definitely exploring everything! 🔍', 'achievement', 'info');
+            } else if (clickCount === 50) {
+                createRetroPopup('50 CLICKS ACHIEVED! You win the "Most Dedicated Visitor" award! 🏆', 'achievement', 'info');
+                toggleDiscoMode();
+            }
+        });
+
+        // Random 90s popup messages (enhanced)
+        setInterval(() => {
+            if (Math.random() < 0.1) { // 10% chance every 5 seconds
+                const messages = [
+                    'ADITI CUTENESS LEVEL: MAXIMUM!',
+                    'LOVE.EXE HAS EXECUTED SUCCESSFULLY!',
+                    'KAWAII OVERLOAD DETECTED!',
+                    'SYSTEM MESSAGE: YOU ARE ADORABLE!',
+                    'DOWNLOADING MORE RAM... 99% COMPLETE',
+                    'ERROR: TOO MUCH CUTENESS FOR SYSTEM TO HANDLE'
+                ];
+                const randomMsg = messages[Math.floor(Math.random() * messages.length)];
+                
+                // Create both old and new style notifications
+                const notification = document.createElement('div');
+                notification.innerHTML = randomMsg;
+                notification.className = 'fixed top-4 right-4 pixel-border p-4 blink pixel-font font-bold z-50';
+                notification.style.background = '#ff69b4';
+                notification.style.color = '#dc143c';
+                document.body.appendChild(notification);
+                setTimeout(() => notification.remove(), 3000);
+            }
+        }, 5000);
+
+        // Audio Player Functions
+        let isPlaying = false;
+        const audio = document.getElementById('audioPlayer');
+        const playButton = document.getElementById('playButton');
+        const progressBar = document.getElementById('progressBar');
+
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                playButton.innerHTML = '► PLAY';
+                isPlaying = false;
+            } else {
+                audio.play();
+                playButton.innerHTML = '⏸ PAUSE';
+                isPlaying = true;
+            }
+        }
+
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+            playButton.innerHTML = '► PLAY';
+            isPlaying = false;
+            progressBar.style.width = '0%';
+        }
+
+        function previousTrack() {
+            // Placeholder for previous track functionality
+            console.log('Previous track');
+        }
+
+        function nextTrack() {
+            // Placeholder for next track functionality
+            console.log('Next track');
+        }
+
+        // Update progress bar
+        audio.addEventListener('timeupdate', function() {
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                progressBar.style.width = progress + '%';
+            }
+        });
+
+        // Reset when audio ends
+        audio.addEventListener('ended', function() {
+            playButton.innerHTML = '► PLAY';
+            isPlaying = false;
+            progressBar.style.width = '0%';
+        });
+
+        // More extensive popup messages
+        const megaPopupMessages = [
+            { type: 'download', message: 'Downloading more RAM... 📊 47% complete', icon: 'info', style: 'mega' },
+            { type: 'virus', message: '⚠️ VIRUS DETECTED! 🦠 Your computer is infected with CUTENESS.EXE!', icon: 'error', style: 'virus' },
+            { type: 'browser', message: 'Welcome to Netscape Navigator! 🌐 You are now browsing the World Wide Web!', icon: 'info', style: 'browser' },
+            { type: 'dial-up', message: '📞 Connecting to Internet... *dial-up sounds* Please wait...', icon: 'info', style: 'notification' },
+            { type: 'email', message: '📧 You have 47 unread emails! Most are chain letters about good luck! 🍀', icon: 'info', style: 'notification' },
+            { type: 'screensaver', message: '🖥️ Screensaver activated: Flying Toasters with Hearts! ❤️', icon: 'info', style: 'mega' },
+            { type: 'cd-rom', message: '💿 Please insert CD-ROM: "1001 Fonts for Windows 95" 💾', icon: 'error', style: 'mega' },
+            { type: 'clippy', message: '📎 It looks like you\'re writing a love letter! Need help? 💕', icon: 'info', style: 'notification' }
+        ];
+
+        // Clock update function
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+            const dateString = now.toLocaleDateString([], {month: '2-digit', day: '2-digit', year: '2-digit'});
+            document.getElementById('clock').textContent = `${dateString} ${timeString}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Enhanced popup creation
+        function createMegaPopup(message, type = 'info', icon = 'info', style = 'normal') {
+            const popup = document.createElement('div');
+            
+            switch(style) {
+                case 'mega':
+                    popup.className = `mega-popup ${enhancedAnimations[Math.floor(Math.random() * enhancedAnimations.length)]}`;
+                    popup.innerHTML = `
+                        <div class="mega-popup-title">
+                            <span>🖥️ ${type.toUpperCase()} - Windows 95</span>
+                            <div class="popup-close" onclick="this.parentElement.parentElement.remove()">[X]</div>
+                        </div>
+                        <div style="padding: 10px; border: 2px inset #c0c0c0; background: white;">
+                            <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                                <div class="${icon === 'error' ? 'error-icon' : 'info-icon'}"></div>
+                                <span>${message}</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <button style="border: 2px outset #c0c0c0; background: #c0c0c0; padding: 4px 12px; font-size: 11px; margin-right: 4px;" onclick="this.closest('.mega-popup').remove()">OK</button>
+                                <button style="border: 2px outset #c0c0c0; background: #c0c0c0; padding: 4px 12px; font-size: 11px;" onclick="this.closest('.mega-popup').remove()">Cancel</button>
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'virus':
+                    popup.className = `virus-alert ${enhancedAnimations[Math.floor(Math.random() * enhancedAnimations.length)]}`;
+                    popup.style.top = Math.random() * 50 + 20 + '%';
+                    popup.style.left = Math.random() * 50 + 20 + '%';
+                    popup.innerHTML = `
+                        <div style="text-align: center;">
+                            <div style="font-size: 16px; margin-bottom: 10px;">⚠️ CRITICAL ERROR ⚠️</div>
+                            <div style="margin-bottom: 10px;">${message}</div>
+                            <button style="background: #ff0000; color: white; border: 2px outset #ff0000; padding: 4px 8px; font-weight: bold;" onclick="this.parentElement.parentElement.remove()">SCAN NOW!</button>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'browser':
+                    popup.className = `browser-window ${enhancedAnimations[Math.floor(Math.random() * enhancedAnimations.length)]}`;
+                    popup.style.top = Math.random() * 30 + 10 + '%';
+                    popup.style.left = Math.random() * 30 + 10 + '%';
+                    popup.innerHTML = `
+                        <div class="browser-title-bar">
+                            <span>🌐 Netscape Navigator - [Aditi's Page]</span>
+                            <div onclick="this.closest('.browser-window').remove()" style="cursor: pointer; padding: 0 4px; background: #ff0000; color: white;">×</div>
+                        </div>
+                        <div style="background: #c0c0c0; padding: 2px; border-bottom: 2px inset #c0c0c0;">
+                            <div style="font-size: 10px;">File Edit View Go Bookmarks Options Directory Window Help</div>
+                        </div>
+                        <div class="browser-content">
+                            <div style="font-family: 'Times New Roman'; color: blue; text-decoration: underline; margin-bottom: 10px;">
+                                Welcome to Aditi's Home Page! 🏠
+                            </div>
+                            <div style="font-size: 12px;">
+                                ${message}
+                            </div>
+                            <div style="margin-top: 10px; font-family: 'Courier New'; font-size: 10px; color: gray;">
+                                Last updated: ${new Date().toLocaleDateString()}
+                            </div>
+                        </div>
+                    `;
+                    break;
+                    
+                case 'notification':
+                default:
+                    popup.className = `notification-popup`;
+                    popup.innerHTML = `
+                        <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 8px; font-weight: bold; color: #ff8c00;">
+                            <span>💻 System Notification</span>
+                            <div onclick="this.parentElement.parentElement.remove()" style="cursor: pointer; margin-left: 10px;">✖</div>
+                        </div>
+                        <div style="font-size: 12px; margin-bottom: 8px;">
+                            ${message}
+                        </div>
+                        <div style="text-align: right;">
+                            <button style="border: 1px outset #ff8c00; background: #ff8c00; color: white; padding: 2px 6px; font-size: 10px;" onclick="this.parentElement.parentElement.remove()">Dismiss</button>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            document.body.appendChild(popup);
+            
+            // Auto-remove with longer times for different styles
+            const autoRemoveTime = style === 'browser' ? 8000 : style === 'virus' ? 6000 : 5000;
+            setTimeout(() => {
+                if (popup.parentNode) {
+                    popup.remove();
+                }
+            }, autoRemoveTime);
+        }
+
+        // Enhanced random popup generator
+        setInterval(() => {
+            if (Math.random() < 0.2) { // 20% chance every 7 seconds for more activity
+                const randomPopup = megaPopupMessages[Math.floor(Math.random() * megaPopupMessages.length)];
+                createMegaPopup(randomPopup.message, randomPopup.type, randomPopup.icon, randomPopup.style);
+            }
+        }, 7000);
+
+        // Enhanced button click effects
+        document.querySelectorAll('.retro-button').forEach(button => {
+            button.addEventListener('click', function() {
+                const buttonText = this.textContent.trim();
+                
+                switch(buttonText) {
+                    case '♥ HUGS.EXE':
+                        createMegaPopup('Initializing virtual hug protocol... 🤗 Hug.exe loaded successfully! Sending warm embrace data packets... Transfer complete! ❤️', 'success', 'info', 'mega');
+                        break;
+                    case '☆ KISS.BAT':
+                        createMegaPopup('Executing kiss.bat... 😘 Loading romance.dll... Activating smooch subroutines... 💋 Process completed with 0 errors! 💕', 'success', 'info', 'browser');
+                        break;
+                    case '♪ LOVE.COM':
+                        createMegaPopup('Connecting to love.com via 56k dial-up modem... 📞 *dial-up sounds* Connection established! Welcome to the Information Super-Love-Highway! 💕🛣️', 'network', 'info', 'notification');
+                        toggleDiscoMode();
+                        break;
+                    case '♥ CUTE.DLL':
+                        createMegaPopup('⚠️ DANGER! Loading cute.dll... System overload imminent! Cuteness levels exceeding safe parameters! 📊💖 Please stand back! ⚠️', 'warning', 'error', 'virus');
+                        createMatrixRain();
+                        break;
+                }
+            });
+        });
+
+        // Special timed events
+        setTimeout(() => {
+            createMegaPopup('🎉 Congratulations! You\'ve been browsing for 10 seconds! You qualify for our FREE trial of "AOL Instant Messenger for Lovers"! 💕', 'promotional', 'info', 'browser');
+        }, 10000);
+
+        setTimeout(() => {
+            createMegaPopup('📧 You\'ve got mail! Subject: "FW: FW: FW: Send this to 10 people or you\'ll have bad luck in love!" 💔', 'email', 'info', 'notification');
+        }, 20000);
+
+        setTimeout(() => {
+            createMegaPopup('🖥️ Screen saver will activate in 30 seconds... Current selection: "Flying Hearts with Rainbow Trails" 🌈❤️', 'screensaver', 'info', 'mega');
+        }, 30000);
+    </script>
+</body>
+</html>
