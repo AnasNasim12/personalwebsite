@@ -743,19 +743,9 @@
                         Please submit any complaints and suggestions for your boyfriend here or just tell me what you're doing today
                     </span>
                 </div>
-                <form action="https://api.web3forms.com/submit" method="POST" class="space-y-4">
-                    <input type="hidden" name="access_key" value="7e8bea67-7777-4e9e-b6af-7a0711c8cc9a">
-                    <input type="hidden" name="subject" value="New message from Aditi ♥">
-                    <input type="hidden" name="from_name" value="Aditi Pareek">
-                    
-                    <!-- Honeypot Spam Protection -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-                    
-                    <!-- Email field to satisfy Web3Forms requirements -->
-                    <input type="hidden" name="email" value="anonymous@aditi-love-page.com">
-                    
+                <form id="messageForm" class="space-y-4">
                     <div>
-                        <textarea name="message"
+                        <textarea id="messageText"
                             class="w-full p-3 pixel-border letter-font" 
                             style="background: #ffffff; color: #000000; resize: vertical; font-size: 14px; min-height: 120px; font-family: 'Courier New', monospace;"
                             placeholder="Type your message here... ♥"
@@ -764,7 +754,7 @@
                         </textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="retro-button p-4 text-white text-lg">
+                        <button type="button" onclick="sendEmail()" class="retro-button p-4 text-white text-lg">
                             ♥ SEND MESSAGE.EXE ♥
                         </button>
                     </div>
@@ -1311,6 +1301,23 @@ you are my everything 💕
         setTimeout(() => {
             createMegaPopup('🖥️ Screen saver will activate in 30 seconds... Current selection: "Flying Hearts with Rainbow Trails" 🌈❤️', 'screensaver', 'info', 'mega');
         }, 30000);
+
+        // Email functionality
+        function sendEmail() {
+            const message = document.getElementById('messageText').value;
+            if (!message.trim()) {
+                createMegaPopup('Please write a message first! 💕', 'error', 'error', 'mega');
+                return;
+            }
+            
+            const subject = encodeURIComponent('Message from Aditi ♥');
+            const body = encodeURIComponent(`Hi Anas!\n\n${message}\n\nLove,\nAditi 💕`);
+            const mailtoLink = `mailto:anasnasim1@gmail.com?subject=${subject}&body=${body}`;
+            
+            window.location.href = mailtoLink;
+            
+            createMegaPopup('Opening email client... 📧 Your message is ready to send! 💕', 'success', 'info', 'notification');
+        }
     </script>
 </body>
 </html>
