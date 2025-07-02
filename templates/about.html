@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anas Nasim | Developer</title>
     
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Anas Nasim - Computer Science student & Python developer specializing in AI, machine learning, and Django. Explore innovative projects and get in touch!">
+    
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='images/favicon.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='images/favicon.png') }}">
@@ -211,6 +214,277 @@
         .cursor-hover {
             cursor: pointer;
         }
+        
+        /* Flippable Card Styles */
+        .flip-card {
+            perspective: 1000px;
+            height: 400px;
+        }
+        
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 8px;
+            border: 1px solid rgba(40, 40, 40, 0.5);
+            background: #090909;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .flip-card-front {
+            text-align: left;
+        }
+        
+        .flip-card-front .icon-container {
+            text-align: center;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+            background: linear-gradient(135deg, #131313 0%, #1c1c1c 100%);
+            border: 1px solid rgba(144, 144, 144, 0.2);
+        }
+        
+        .project-card {
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -15px rgba(255, 255, 255, 0.1);
+        }
+        
+        .flip-card-back .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 12px;
+            background: rgba(9, 9, 9, 0.5);
+            border-radius: 6px;
+            border: 1px solid rgba(144, 144, 144, 0.1);
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        
+        .feature-item:hover {
+            background: rgba(40, 40, 40, 0.3);
+            border-color: rgba(144, 144, 144, 0.2);
+        }
+        
+        .feature-item i {
+            margin-right: 6px;
+            color: #909090;
+        }
+        
+        .flip-indicator {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(144, 144, 144, 0.1);
+            border: 1px solid rgba(144, 144, 144, 0.2);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+        
+        .project-card:hover .flip-indicator {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        
+        .back-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: left;
+        }
+        
+        .back-header {
+            margin-bottom: 16px;
+        }
+        
+        .back-features {
+            flex-grow: 1;
+            margin-bottom: 16px;
+        }
+        
+        .back-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .action-btn {
+            flex: 1;
+            padding: 8px 16px;
+            background: rgba(9, 9, 9, 0.8);
+            border: 1px solid rgba(144, 144, 144, 0.2);
+            border-radius: 6px;
+            color: #d0d0d0;
+            text-decoration: none;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-align: center;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        
+        .action-btn:hover {
+            background: rgba(40, 40, 40, 0.6);
+            border-color: rgba(208, 208, 208, 0.4);
+            color: #f0f0f0;
+            transform: translateY(-1px);
+        }
+        
+        .action-btn.primary {
+            background: rgba(240, 240, 240, 0.05);
+            border-color: rgba(240, 240, 240, 0.2);
+        }
+        
+        .action-btn.primary:hover {
+            background: rgba(240, 240, 240, 0.1);
+            border-color: rgba(240, 240, 240, 0.4);
+        }
+        
+        /* Skills Card Styles */
+        .skill-card {
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(255, 255, 255, 0.15);
+        }
+        
+        .skill-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        
+        .skill-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(144, 144, 144, 0.1);
+            border: 1px solid rgba(144, 144, 144, 0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover .skill-icon {
+            background: rgba(144, 144, 144, 0.2);
+            border-color: rgba(208, 208, 208, 0.4);
+            transform: scale(1.1);
+        }
+        
+        .enhanced-tag-pill {
+            background: rgba(9, 9, 9, 0.6);
+            border: 1px solid rgba(144, 144, 144, 0.15);
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .enhanced-tag-pill:hover {
+            background: rgba(40, 40, 40, 0.8);
+            border-color: rgba(144, 144, 144, 0.3);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .enhanced-tag-pill::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #909090;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        
+        .enhanced-tag-pill:hover::before {
+            background: #d0d0d0;
+        }
+        
+        .certification-item {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(144, 144, 144, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .certification-item:last-child {
+            border-bottom: none;
+        }
+        
+        .certification-item:hover {
+            padding-left: 8px;
+            background: rgba(144, 144, 144, 0.05);
+            border-radius: 6px;
+            border-bottom-color: transparent;
+        }
+        
+        .certification-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 2px 8px;
+            background: rgba(240, 240, 240, 0.1);
+            border: 1px solid rgba(240, 240, 240, 0.2);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            transition: all 0.2s ease;
+        }
+        
+        .certification-link:hover {
+            background: rgba(240, 240, 240, 0.2);
+            border-color: rgba(240, 240, 240, 0.4);
+            transform: translateX(2px);
+        }
     </style>
 </head>
 
@@ -409,144 +683,443 @@
                     <h3 class="font-display text-4xl">Projects</h3>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1 -->
-                    <div class="project-card bg-noir border border-slate/20 reveal">
-                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
-                            <span class="text-5xl">📄</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-display text-xl">ChatPDF Gemini</h3>
-                                <a href="https://github.com/AnasNasim12/ChatWithPDF" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
+                    <div class="flip-card reveal">
+                        <div class="flip-card-inner">
+                            <!-- Front Side -->
+                            <div class="flip-card-front project-card">
+                                <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                                    <span class="text-5xl" role="img" aria-label="PDF document icon">📄</span>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-display text-xl">ChatPDF Gemini</h4>
+                                        <a href="https://github.com/AnasNasim12/ChatWithPDF" target="_blank" aria-label="View source code" class="text-silver hover:text-chalk transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-silver mb-5 leading-relaxed text-sm">
+                                        AI-powered web application that extracts insights and answers questions from uploaded PDF documents using Google's Gemini model.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Gemini AI</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Streamlit</span>
+                                    </div>
+                                </div>
+                                <div class="flip-indicator">
+                                    <i class="fas fa-redo text-xs text-silver"></i>
+                                </div>
                             </div>
-                            <p class="text-silver mb-5 leading-relaxed">
-                                A web application that utilizes Google's Gemini model to extract insights and answer questions from uploaded PDF documents.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Gemini</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Streamlit</span>
+                            
+                            <!-- Back Side -->
+                            <div class="flip-card-back">
+                                <div class="back-content">
+                                    <div class="back-header">
+                                        <h4 class="font-display text-lg mb-2">Key Features</h4>
+                                    </div>
+                                    
+                                    <div class="back-features">
+                                        <div class="tech-grid">
+                                            <div class="feature-item">
+                                                <i class="fas fa-brain"></i>
+                                                <span>AI Analysis</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-comments"></i>
+                                                <span>Q&A Interface</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span>PDF Processing</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-search"></i>
+                                                <span>Smart Search</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-silver text-sm mt-4">
+                                            Upload PDFs and get intelligent responses powered by Google's advanced Gemini AI model. Perfect for research and document analysis.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="back-actions">
+                                        <a href="https://github.com/AnasNasim12/ChatWithPDF" target="_blank" class="action-btn" style="flex: 1;">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <!-- <a href="#" class="action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Demo</span>
+                                        </a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 2 -->
-                    <div class="project-card bg-noir border border-slate/20 reveal">
-                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
-                            <span class="text-5xl">📚</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-display text-xl">eBook Generator</h3>
-                                <a href="https://github.com/AnasNasim12/ebookgen" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
+                    <div class="flip-card reveal">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front project-card">
+                                <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                                    <span class="text-5xl" role="img" aria-label="Book icon">📚</span>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-display text-xl">AI eBook Generator</h4>
+                                        <a href="https://github.com/AnasNasim12/ebookgen" target="_blank" aria-label="View source code" class="text-silver hover:text-chalk transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-silver mb-5 leading-relaxed text-sm">
+                                        Intelligent Python application that automatically generates professionally formatted eBooks with AI-generated content.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Google AI</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">PyTorch</span>
+                                    </div>
+                                </div>
+                                <div class="flip-indicator">
+                                    <i class="fas fa-redo text-xs text-silver"></i>
+                                </div>
                             </div>
-                            <p class="text-silver mb-5 leading-relaxed">
-                                Python tool that automatically generates formatted eBooks with rich content based on user-provided topics and preferences.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Google AI</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Torch</span>
+                            
+                            <div class="flip-card-back">
+                                <div class="back-content">
+                                    <div class="back-header">
+                                        <h4 class="font-display text-lg mb-2">Key Features</h4>
+                                    </div>
+                                    
+                                    <div class="back-features">
+                                        <div class="tech-grid">
+                                            <div class="feature-item">
+                                                <i class="fas fa-magic"></i>
+                                                <span>Auto Generation</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-palette"></i>
+                                                <span>Custom Themes</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-file-export"></i>
+                                                <span>Multiple Formats</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-cog"></i>
+                                                <span>Configurable</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-silver text-sm mt-4">
+                                            Generate complete eBooks on any topic with AI-powered content creation, professional formatting, and customizable templates.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="back-actions">
+                                        <a href="https://github.com/AnasNasim12/ebookgen" target="_blank" class="action-btn" style="flex: 1;">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <!-- <a href="#" class="action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Demo</span>
+                                        </a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 3 -->
-                    <div class="project-card bg-noir border border-slate/20 reveal">
-                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
-                            <span class="text-5xl">🖼️</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-display text-xl">AI Image Classifier</h3>
-                                <a href="https://github.com/AnasNasim12/AIArtVSRealArt" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
+                    <div class="flip-card reveal">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front project-card">
+                                <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                                    <span class="text-5xl" role="img" aria-label="Image icon">🖼️</span>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-display text-xl">AI Art Classifier</h4>
+                                        <a href="https://github.com/AnasNasim12/AIArtVSRealArt" target="_blank" aria-label="View source code" class="text-silver hover:text-chalk transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-silver mb-5 leading-relaxed text-sm">
+                                        Deep learning computer vision project that distinguishes between AI-generated and authentic human-created artwork.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">PyTorch</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Computer Vision</span>
+                                    </div>
+                                </div>
+                                <div class="flip-indicator">
+                                    <i class="fas fa-redo text-xs text-silver"></i>
+                                </div>
                             </div>
-                            <p class="text-silver mb-5 leading-relaxed">
-                                Machine learning project that distinguishes between AI-generated and authentic human-created artistic images.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">PyTorch</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Pandas</span>
+                            
+                            <div class="flip-card-back">
+                                <div class="back-content">
+                                    <div class="back-header">
+                                        <h4 class="font-display text-lg mb-2">Key Features</h4>
+                                    </div>
+                                    
+                                    <div class="back-features">
+                                        <div class="tech-grid">
+                                            <div class="feature-item">
+                                                <i class="fas fa-eye"></i>
+                                                <span>Image Analysis</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-chart-line"></i>
+                                                <span>High Accuracy</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-network-wired"></i>
+                                                <span>Neural Networks</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-upload"></i>
+                                                <span>Batch Processing</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-silver text-sm mt-4">
+                                            Advanced CNN model trained to identify subtle differences between AI-generated and human-created artistic images with high precision.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="back-actions">
+                                        <a href="https://github.com/AnasNasim12/AIArtVSRealArt" target="_blank" class="action-btn" style="flex: 1;">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <!-- <a href="#" class="action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Demo</span>
+                                        </a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Project 4 -->
-                    <div class="project-card bg-noir border border-slate/20 reveal">
-                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
-                            <span class="text-5xl">🤖</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-display text-xl">HuggingFace Processor</h3>
-                                <a href="https://github.com/AnasNasim12/HuggingFaceNLP" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
+                    <div class="flip-card reveal">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front project-card">
+                                <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                                    <span class="text-5xl" role="img" aria-label="Robot icon">🤖</span>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-display text-xl">HuggingFace NLP</h4>
+                                        <a href="https://github.com/AnasNasim12/HuggingFaceNLP" target="_blank" aria-label="View source code" class="text-silver hover:text-chalk transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-silver mb-5 leading-relaxed text-sm">
+                                        Production-ready Flask web application for advanced text processing using HuggingFace's state-of-the-art NLP models.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Flask</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">HuggingFace</span>
+                                    </div>
+                                </div>
+                                <div class="flip-indicator">
+                                    <i class="fas fa-redo text-xs text-silver"></i>
+                                </div>
                             </div>
-                            <p class="text-silver mb-5 leading-relaxed">
-                                Flask-based web application for text processing leveraging HuggingFace's powerful NLP models and inference API.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Flask</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">HuggingFace</span>
+                            
+                            <div class="flip-card-back">
+                                <div class="back-content">
+                                    <div class="back-header">
+                                        <h4 class="font-display text-lg mb-2">Key Features</h4>
+                                    </div>
+                                    
+                                    <div class="back-features">
+                                        <div class="tech-grid">
+                                            <div class="feature-item">
+                                                <i class="fas fa-language"></i>
+                                                <span>NLP Tasks</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-smile"></i>
+                                                <span>Sentiment Analysis</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-server"></i>
+                                                <span>REST API</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-rocket"></i>
+                                                <span>Fast Processing</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-silver text-sm mt-4">
+                                            Comprehensive NLP solution supporting sentiment analysis, text generation, summarization, and language understanding tasks.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="back-actions">
+                                        <a href="https://github.com/AnasNasim12/HuggingFaceNLP" target="_blank" class="action-btn" style="flex: 1;">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <!-- <a href="#" class="action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Demo</span>
+                                        </a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 5 -->
-                    <div class="project-card bg-noir border border-slate/20 reveal">
-                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
-                            <span class="text-5xl">📝</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-display text-xl">AI Content Writer</h3>
-                                <a href="https://github.com/AnasNasim12/ai-content-writer" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
+                    <div class="flip-card reveal">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front project-card">
+                                <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                                    <span class="text-5xl" role="img" aria-label="Document icon">📝</span>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-display text-xl">AI Content Writer</h4>
+                                        <a href="https://github.com/AnasNasim12/ai-content-writer" target="_blank" aria-label="View source code" class="text-silver hover:text-chalk transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-silver mb-5 leading-relaxed text-sm">
+                                        Comprehensive 4-step wizard platform that generates SEO-optimized content using AI with React and Firebase integration.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">React</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Firebase</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">AI</span>
+                                    </div>
+                                </div>
+                                <div class="flip-indicator">
+                                    <i class="fas fa-redo text-xs text-silver"></i>
+                                </div>
                             </div>
-                            <p class="text-silver mb-5 leading-relaxed">
-                                A 4-step wizard platform that generates SEO-optimized content using AI, with seamless integration of React, Firebase, and LLM services.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Node.js</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">React</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Firebase</span>
+                            
+                            <div class="flip-card-back">
+                                <div class="back-content">
+                                    <div class="back-header">
+                                        <h4 class="font-display text-lg mb-2">Key Features</h4>
+                                    </div>
+                                    
+                                    <div class="back-features">
+                                        <div class="tech-grid">
+                                            <div class="feature-item">
+                                                <i class="fas fa-search"></i>
+                                                <span>SEO Optimized</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-list-ol"></i>
+                                                <span>Step-by-Step</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-cloud"></i>
+                                                <span>Cloud Storage</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-mobile-alt"></i>
+                                                <span>Responsive</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-silver text-sm mt-4">
+                                            Full-stack platform with intuitive wizard interface for creating high-quality, SEO-optimized content using advanced AI models.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="back-actions">
+                                        <a href="https://github.com/AnasNasim12/ai-content-writer" target="_blank" class="action-btn" style="flex: 1;">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <!-- <a href="#" class="action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Demo</span>
+                                        </a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Project 6 -->
-                    <div class="project-card bg-noir border border-slate/20 reveal">
-                        <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
-                            <span class="text-5xl">📈</span>
-                        </div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-center mb-4">
-                                <h3 class="font-display text-xl">StatTraker</h3>
-                                <a href="https://github.com/AnasNasim12/StatTraker" target="_blank" aria-label="GitHub" class="text-silver hover:text-chalk">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
+                    <div class="flip-card reveal">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front project-card">
+                                <div class="aspect-w-16 aspect-h-9 bg-noir-lighter flex items-center justify-center p-8 icon-container">
+                                    <span class="text-5xl" role="img" aria-label="Chart icon">📈</span>
+                                </div>
+                                <div class="p-6 flex-grow">
+                                    <div class="flex justify-between items-center mb-4">
+                                        <h4 class="font-display text-xl">StatTracker</h4>
+                                        <a href="https://github.com/AnasNasim12/StatTraker" target="_blank" aria-label="View source code" class="text-silver hover:text-chalk transition-colors">
+                                            <i class="fab fa-github text-lg"></i>
+                                        </a>
+                                    </div>
+                                    <p class="text-silver mb-5 leading-relaxed text-sm">
+                                        Full-stack React and Flask stock market analytics dashboard with real-time data visualization and ML predictions.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">React</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Flask</span>
+                                        <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">ML</span>
+                                    </div>
+                                </div>
+                                <div class="flip-indicator">
+                                    <i class="fas fa-redo text-xs text-silver"></i>
+                                </div>
                             </div>
-                            <p class="text-silver mb-5 leading-relaxed">
-                                A comprehensive React + Flask stock market dashboard with real-time data visualization, multi-stock comparison, ML predictions, and advanced charting capabilities.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">React</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Groq</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Flask</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Python</span>
-                                <span class="tag-pill bg-noir-lighter text-silver px-3 py-1 text-xs">Recharts</span>
+                            
+                            <div class="flip-card-back">
+                                <div class="back-content">
+                                    <div class="back-header">
+                                        <h4 class="font-display text-lg mb-2">Key Features</h4>
+                                    </div>
+                                    
+                                    <div class="back-features">
+                                        <div class="tech-grid">
+                                            <div class="feature-item">
+                                                <i class="fas fa-chart-line"></i>
+                                                <span>Real-time Data</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-brain"></i>
+                                                <span>ML Predictions</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-balance-scale"></i>
+                                                <span>Stock Comparison</span>
+                                            </div>
+                                            <div class="feature-item">
+                                                <i class="fas fa-chart-bar"></i>
+                                                <span>Advanced Charts</span>
+                                            </div>
+                                        </div>
+                                        <p class="text-silver text-sm mt-4">
+                                            Professional stock market dashboard with real-time data feeds, machine learning price predictions, and comprehensive analytics tools.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="back-actions">
+                                        <a href="https://github.com/AnasNasim12/StatTraker" target="_blank" class="action-btn" style="flex: 1;">
+                                            <i class="fab fa-github"></i>
+                                            <span>View Code</span>
+                                        </a>
+                                        <!-- <a href="#" class="action-btn primary">
+                                            <i class="fas fa-external-link-alt"></i>
+                                            <span>Demo</span>
+                                        </a> -->
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -558,96 +1131,146 @@
         <section id="skills" class="py-24 px-4 md:px-8">
             <div class="max-w-6xl mx-auto">
                 <div class="mb-16 text-center reveal">
-                    <h2 class="text-xs text-silver mb-1 tracking-widest">EXPERTISE</h2>
-                    <h3 class="font-display text-4xl">Technical Skills</h3>
+                    <h2 class="text-xs text-silver mb-1 tracking-widest">TECHNICAL EXPERTISE</h2>
+                    <h3 class="font-display text-4xl">Skills & Technologies</h3>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
                     <!-- Languages -->
-                    <div class="bg-noir-light border border-slate/20 p-6">
-                        <h3 class="font-display text-lg mb-6 flex items-center">
-                          Languages
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Python</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Java</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">JavaScript</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">C</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">R</span>
+                    <div class="skill-card bg-noir-light border border-slate/20 p-6 rounded-lg">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-code text-silver"></i>
+                            </div>
+                            <h3 class="font-display text-lg">Programming Languages</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="enhanced-tag-pill text-silver">Python</span>
+                            <span class="enhanced-tag-pill text-silver">Java</span>
+                            <span class="enhanced-tag-pill text-silver">JavaScript</span>
+                            <span class="enhanced-tag-pill text-silver">C</span>
+                            <span class="enhanced-tag-pill text-silver">R</span>
                         </div>
                     </div>
                     
                     <!-- Web Development -->
-                    <div class="bg-noir-light border border-slate/20 p-6">
-                        <h3 class="font-display text-lg mb-6 flex items-center">
-                            Web Development
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">HTML/CSS</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Django</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Flask</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">FastAPI</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Express.js</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">React Native</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Tailwind</span>
+                    <div class="skill-card bg-noir-light border border-slate/20 p-6 rounded-lg">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-globe text-silver"></i>
+                            </div>
+                            <h3 class="font-display text-lg">Web Development</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="enhanced-tag-pill text-silver">HTML/CSS</span>
+                            <span class="enhanced-tag-pill text-silver">Django</span>
+                            <span class="enhanced-tag-pill text-silver">Flask</span>
+                            <span class="enhanced-tag-pill text-silver">FastAPI</span>
+                            <span class="enhanced-tag-pill text-silver">Express.js</span>
+                            <span class="enhanced-tag-pill text-silver">React Native</span>
+                            <span class="enhanced-tag-pill text-silver">Tailwind</span>
                         </div>
                     </div>
                     
                     <!-- Data Science -->
-                    <div class="bg-noir-light border border-slate/20 p-6">
-                        <h3 class="font-display text-lg mb-6 flex items-center">
-                       Data Science
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">pandas</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">NumPy</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Matplotlib</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">seaborn</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">scikit-learn</span>
+                    <div class="skill-card bg-noir-light border border-slate/20 p-6 rounded-lg">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-chart-bar text-silver"></i>
+                            </div>
+                            <h3 class="font-display text-lg">Data Science</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="enhanced-tag-pill text-silver">pandas</span>
+                            <span class="enhanced-tag-pill text-silver">NumPy</span>
+                            <span class="enhanced-tag-pill text-silver">Matplotlib</span>
+                            <span class="enhanced-tag-pill text-silver">seaborn</span>
+                            <span class="enhanced-tag-pill text-silver">scikit-learn</span>
                         </div>
                     </div>
                     
                     <!-- Machine Learning -->
-                    <div class="bg-noir-light border border-slate/20 p-6">
-                        <h3 class="font-display text-lg mb-6 flex items-center">
-                            Machine Learning
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">TensorFlow</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">PyTorch</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">HuggingFace</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Transformers</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">keras</span>
+                    <div class="skill-card bg-noir-light border border-slate/20 p-6 rounded-lg">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-brain text-silver"></i>
+                            </div>
+                            <h3 class="font-display text-lg">Machine Learning</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="enhanced-tag-pill text-silver">TensorFlow</span>
+                            <span class="enhanced-tag-pill text-silver">PyTorch</span>
+                            <span class="enhanced-tag-pill text-silver">HuggingFace</span>
+                            <span class="enhanced-tag-pill text-silver">Transformers</span>
+                            <span class="enhanced-tag-pill text-silver">Keras</span>
                         </div>
                     </div>
                     
                     <!-- Tools -->
-                    <div class="bg-noir-light border border-slate/20 p-6">
-                        <h3 class="font-display text-lg mb-6 flex items-center">
-                            Tools & Technologies
-                        </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Git</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">SQL</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">PostgreSQL</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Firebase</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Supabase</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">GCP</span>
-                            <span class="tag-pill bg-noir text-silver px-3 py-1 text-sm">Docker</span>
+                    <div class="skill-card bg-noir-light border border-slate/20 p-6 rounded-lg">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-tools text-silver"></i>
+                            </div>
+                            <h3 class="font-display text-lg">Tools & Technologies</h3>
+                        </div>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="enhanced-tag-pill text-silver">Git</span>
+                            <span class="enhanced-tag-pill text-silver">SQL</span>
+                            <span class="enhanced-tag-pill text-silver">PostgreSQL</span>
+                            <span class="enhanced-tag-pill text-silver">Firebase</span>
+                            <span class="enhanced-tag-pill text-silver">Supabase</span>
+                            <span class="enhanced-tag-pill text-silver">GCP</span>
+                            <span class="enhanced-tag-pill text-silver">Docker</span>
                         </div>
                     </div>
                     
                     <!-- Certifications -->
-                    <div class="bg-noir-light border border-slate/20 p-6">
-                        <h3 class="font-display text-lg mb-6 flex items-center">
-                            Certifications
-                        </h3>
-                        <ul class="text-silver space-y-2 text-sm">
-                            <li>Java OOP Programming <a href="https://coursera.org/share/12560d9bf67cd8cbe6d865faaac61f8d" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
-                            <li>Agile Project Management <a href="https://coursera.org/share/8bb191f7adb564d4deb8d406fcbec8fa" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
-                            <li>ML: Python & R <a href="https://www.udemy.com/certificate/UC-e33a4896-4153-4528-910c-6fd781eb5e77/" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
-                            <li>DSA in C <a href="https://www.udemy.com/certificate/UC-3a7fc166-2cd6-41a0-8a66-3dca351d5283/" class="text-chalk hover:underline ml-1" target="_blank">view</a></li>
-                        </ul>
+                    <div class="skill-card bg-noir-light border border-slate/20 p-6 rounded-lg">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-certificate text-silver"></i>
+                            </div>
+                            <h3 class="font-display text-lg">Certifications</h3>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="certification-item">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-silver text-sm">Java OOP Programming</span>
+                                    <a href="https://coursera.org/share/12560d9bf67cd8cbe6d865faaac61f8d" class="certification-link text-chalk hover:text-white" target="_blank">
+                                        <span>view</span>
+                                        <i class="fas fa-external-link-alt text-xs"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="certification-item">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-silver text-sm">Agile Project Management</span>
+                                    <a href="https://coursera.org/share/8bb191f7adb564d4deb8d406fcbec8fa" class="certification-link text-chalk hover:text-white" target="_blank">
+                                        <span>view</span>
+                                        <i class="fas fa-external-link-alt text-xs"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="certification-item">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-silver text-sm">ML: Python & R</span>
+                                    <a href="https://www.udemy.com/certificate/UC-e33a4896-4153-4528-910c-6fd781eb5e77/" class="certification-link text-chalk hover:text-white" target="_blank">
+                                        <span>view</span>
+                                        <i class="fas fa-external-link-alt text-xs"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="certification-item">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-silver text-sm">DSA in C</span>
+                                    <a href="https://www.udemy.com/certificate/UC-3a7fc166-2cd6-41a0-8a66-3dca351d5283/" class="certification-link text-chalk hover:text-white" target="_blank">
+                                        <span>view</span>
+                                        <i class="fas fa-external-link-alt text-xs"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -831,6 +1454,41 @@
             
             // Run once on load
             setTimeout(revealOnLoad, 100);
+        });
+        
+        // Enhanced card interactions
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add touch support for mobile devices
+            const flipCards = document.querySelectorAll('.flip-card');
+            
+            flipCards.forEach(card => {
+                let isFlipped = false;
+                
+                // Touch/click support for mobile
+                card.addEventListener('click', function(e) {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const inner = card.querySelector('.flip-card-inner');
+                        
+                        if (!isFlipped) {
+                            inner.style.transform = 'rotateY(180deg)';
+                            isFlipped = true;
+                        } else {
+                            inner.style.transform = 'rotateY(0deg)';
+                            isFlipped = false;
+                        }
+                    }
+                });
+                
+                // Reset on mouse leave for desktop
+                card.addEventListener('mouseleave', function() {
+                    if (window.innerWidth > 768 && isFlipped) {
+                        const inner = card.querySelector('.flip-card-inner');
+                        inner.style.transform = 'rotateY(0deg)';
+                        isFlipped = false;
+                    }
+                });
+            });
         });
     </script>
 </body>
