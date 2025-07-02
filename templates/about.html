@@ -1466,6 +1466,11 @@
                 
                 // Touch/click support for mobile
                 card.addEventListener('click', function(e) {
+                    // Don't flip if clicking on a link or button
+                    if (e.target.closest('a') || e.target.closest('button')) {
+                        return;
+                    }
+                    
                     if (window.innerWidth <= 768) {
                         e.preventDefault();
                         const inner = card.querySelector('.flip-card-inner');
@@ -1487,6 +1492,14 @@
                         inner.style.transform = 'rotateY(0deg)';
                         isFlipped = false;
                     }
+                });
+                
+                // Ensure links work properly
+                const links = card.querySelectorAll('a');
+                links.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
                 });
             });
         });
