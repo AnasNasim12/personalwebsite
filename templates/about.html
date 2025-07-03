@@ -1312,10 +1312,6 @@
                            class="h-10 w-10 flex items-center justify-center rounded-full border border-slate/20 text-silver hover:text-chalk hover:border-chalk transition-colors btn-press">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://steamcommunity.com/id/fookinlasehsoights" target="_blank" aria-label="Steam" 
-                           class="h-10 w-10 flex items-center justify-center rounded-full border border-slate/20 text-silver hover:text-chalk hover:border-chalk transition-colors btn-press">
-                            <i class="fab fa-steam"></i>
-                        </a>
                     </div>
                 </div>
             </div>
@@ -1366,16 +1362,11 @@
         scrollTopButton.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Create a smoother animation with requestAnimationFrame
-            const scrollToTop = () => {
-                const position = document.documentElement.scrollTop || document.body.scrollTop;
-                if (position > 0) {
-                    window.requestAnimationFrame(scrollToTop);
-                    window.scrollTo(0, position - position / 8);
-                }
-            };
-            
-            window.requestAnimationFrame(scrollToTop);
+            // Simple scroll to top with smooth behavior
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Improved Reveal Animation on Scroll with IntersectionObserver
